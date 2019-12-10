@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import app from "./base.js";
+import firedatabase from "./base.js";
 import { AuthContext } from "./Auth.js";
 
 const Login = ({ history }) => {
@@ -9,7 +9,7 @@ const Login = ({ history }) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-        await app
+        await firedatabase
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
         history.push("/");
