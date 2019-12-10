@@ -6,6 +6,7 @@ import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
 import { AuthProvider } from "./components/auth/Auth";
 import PrivateRoute from "./components/auth/PrivateRoute";
+import List from './components/consultation_form/cons_list'
 import ExampleFireStore from "./components/example";
 
 //import firebase from "./components/auth/base";
@@ -25,6 +26,7 @@ const App = () => {
           <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          <List />
         </div>
         <ExampleFireStore />
       </Router>
