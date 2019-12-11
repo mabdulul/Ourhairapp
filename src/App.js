@@ -23,6 +23,9 @@ const App = () => {
                 <li>
                   <Link to="/">DashBoard</Link>
                 </li>
+                <li>
+                  <Link to="/quiz">Quiz</Link>
+                </li>
               </>
             ) : (
                 <>
@@ -32,16 +35,18 @@ const App = () => {
                   <li>
                     <Link to="/login">Members Login</Link>
                   </li>
+
                 </>
               )}
           </ul>
           <li>
             <Link to="/stylist">Stylist</Link>
-            <List />
+
           </li>
         </nav>
         <PrivateRoute exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/quiz" component={List} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/stylist" component={Stylist_Quiz_List} />
       </div>
