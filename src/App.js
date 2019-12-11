@@ -7,15 +7,9 @@ import SignUp from "./components/auth/SignUp";
 import { AuthProvider } from "./components/auth/Auth";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import ExampleFireStore from "./components/example";
+import List from './components/consultation_form/cons_list'
 
-//import firebase from "./components/auth/base";
 
-// firebase
-//   .firestore()
-//   .collection("user")
-//   .add({
-//     user: "Mulk"
-//   });
 
 const App = () => {
   return (
@@ -27,6 +21,7 @@ const App = () => {
           <Route exact path="/signup" component={SignUp} />
         </div>
         <ExampleFireStore />
+        <List />
       </Router>
     </AuthProvider>
   );
