@@ -1,25 +1,13 @@
 import React from "react";
-import app from "./base";
-import Customer from "../Cust_DashBoard/Customer";
-import UpcomingAppts from "../Cust_DashBoard/UpcomingAppts";
-import PastAppts from "../Cust_DashBoard/PastAppts";
+import firedatabase from "./base";
 
 const Home = () => {
-	return (
-		<>
-			<h1>Home</h1>
-			<button onClick={() => app.auth().signOut()}>Sign out</button>
-			<div>
-				<Customer />
-			</div>
-			<div>
-				<UpcomingAppts />
-			</div>
-			<div>
-				<PastAppts />
-			</div>
-		</>
-	);
+  return (
+    <>
+      <h1>Home</h1>
+      <button onClick={() => firedatabase.auth().signOut()}>Sign out</button>
+    </>
+  );
 };
 
 export default Home;
