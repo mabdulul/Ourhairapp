@@ -7,6 +7,7 @@ import SignUp from "./components/auth/SignUp";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
+import List from "./components/consultation_form/cons_list"
 
 
 const App = () => {
@@ -36,8 +37,8 @@ const App = () => {
           </ul>
           <li>
             <Link to="/stylist">Stylist</Link>
+            <List />
           </li>
-
         </nav>
         <PrivateRoute exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
