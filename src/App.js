@@ -8,11 +8,12 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
 import List from "./components/consultation_form/cons_list"
+import firedatabase from "./components/auth/base";
 
 
 const App = () => {
   const { currentUser } = useContext(AuthContext);
-  console.log("right here ", currentUser);
+
   return (
     <Router>
       <div>
@@ -41,7 +42,6 @@ const App = () => {
           </ul>
           <li>
             <Link to="/stylist">Stylist</Link>
-
           </li>
         </nav>
         <PrivateRoute exact path="/" component={Home} />
