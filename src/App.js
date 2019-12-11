@@ -7,7 +7,7 @@ import SignUp from "./components/auth/SignUp";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
-import ProfilePage from "./components/example";
+
 
 const App = () => {
   const { currentUser } = useContext(AuthContext);
@@ -24,20 +24,20 @@ const App = () => {
                 </li>
               </>
             ) : (
-              <>
-                <li>
-                  <Link to="/signup">Sign Up</Link>
-                </li>
-                <li>
-                  <Link to="/login">Members Login</Link>
-                </li>
-              </>
-            )}
+                <>
+                  <li>
+                    <Link to="/signup">Sign Up</Link>
+                  </li>
+                  <li>
+                    <Link to="/login">Members Login</Link>
+                  </li>
+                </>
+              )}
           </ul>
           <li>
             <Link to="/stylist">Stylist</Link>
           </li>
-          <ProfilePage />
+
         </nav>
         <PrivateRoute exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
