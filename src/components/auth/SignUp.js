@@ -10,7 +10,9 @@ const SignUp = ({ history }) => {
       try {
         await firedatabase
           .auth()
-          .createUserWithEmailAndPassword(email.value, password.value);
+          .createUserWithEmailAndPassword(email.value, password.value)
+          .then()
+          .then(data => console.log(data));
         history.push("/");
       } catch (error) {
         alert(error);

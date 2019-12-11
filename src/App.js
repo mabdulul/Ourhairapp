@@ -1,34 +1,50 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/auth/Home";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
-import { AuthProvider } from "./components/auth/Auth";
 import PrivateRoute from "./components/auth/PrivateRoute";
-import ExampleFireStore from "./components/example";
-
-//import firebase from "./components/auth/base";
-
-// firebase
-//   .firestore()
-//   .collection("user")
-//   .add({
-//     user: "Mulk"
-//   });
+import { AuthContext } from "./components/auth/Auth";
+import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
+import ProfilePage from "./components/example";
 
 const App = () => {
+  const { currentUser } = useContext(AuthContext);
+  console.log("right here ", currentUser);
   return (
-    <AuthProvider>
-      <Router>
-        <div>
-          <PrivateRoute exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-        </div>
-        <ExampleFireStore />
-      </Router>
-    </AuthProvider>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            {!!currentUser ? (
+              <>
+                <li>
+                  <Link to="/">DashBoard</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/signup">Sign Up</Link>
+                </li>
+                <li>
+                  <Link to="/login">Members Login</Link>
+                </li>
+              </>
+            )}
+          </ul>
+          <li>
+            <Link to="/stylist">Stylist</Link>
+          </li>
+          <ProfilePage />
+        </nav>
+        <PrivateRoute exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/stylist" component={Stylist_Quiz_List} />
+      </div>
+    </Router>
   );
 };
 
