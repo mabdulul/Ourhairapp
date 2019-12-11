@@ -9,13 +9,18 @@ const List = () => {
     const [porosity, setPorosity] = useState("");
     const [colored, setColored] = useState("");
     const [pro, setPro] = useState("");
+    const [date, setDate] = useState("");
+    const [picture, setPicture] = useState("");
+    const [notes, setNotes] = useState("");
     
     return ( 
 
         <div className="container">
         <div className="row mt-5">
           <div className="col-sm-12">
-            <form>
+            <form 
+            action="https://hairapp-ebf66.firebaseio.json"
+            method="post" >
 
             <p>Hair type</p>
             <div className="form-group">
@@ -278,7 +283,7 @@ const List = () => {
                           </label>
                       </div>
               </div>
-
+{colored==="colored" ? <>
 
                 <div className="form-group">
                   <div className="form-check">
@@ -310,10 +315,11 @@ const List = () => {
                 <div className="form-group">
                   <div className="form-calendar">
                     <p>When was your last color date?</p>
-                    <Calendar />
+                    <Calendar 
+                    value={date}
+                    onChange={date => setDate(date)}/>
                   </div>
-                </div>
-                
+                </div> </>:""}
                 
                 <div className="form-group">
                   <p>What is your ideal hair?</p>
@@ -321,6 +327,7 @@ const List = () => {
                     <input
                     type="file"
                     name="hair pics"
+                    onChange={e => setPicture(e.target.value)}
                     />
                   </label>
                   <label>
@@ -328,6 +335,8 @@ const List = () => {
                     type="text"
                     name="notes"
                     placeholder="Any more notes?"
+                    value={notes}
+                    onChange={e => setNotes(e.target.value)}
                     className="form-text-input"
                     />
                   </label>
@@ -347,4 +356,14 @@ const List = () => {
     )
 }
 
-export default List
+// firebase
+//   .firestore()
+//   .collection("user")
+//   .add({
+//     user: "Mike"
+//   });
+
+//   ar user = firedatabase.auth().currentUser;
+//   console.log("this users id", user.uid);
+
+export default List;
