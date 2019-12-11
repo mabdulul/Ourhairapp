@@ -1,13 +1,13 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
-
-const app = firebase.initializeApp({
-  apiKey: process.env.REACT_APP_FIREBASE_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
-  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID
+import "firebase/firestore";
+export const firedatabase = firebase.initializeApp({
+  apiKey: "AIzaSyB_-z4RLeaiFtkSvAzN0X1yuDFx99xmfgk",
+  authDomain: "ourhairapp-2e419.firebaseapp.com",
+  databaseURL: "https://ourhairapp-2e419.firebaseio.com",
+  projectId: "ourhairapp-2e419",
+  storageBucket: "ourhairapp-2e419.appspot.com",
+  messagingSenderId: "842940372106",
+  appId: "1:842940372106:web:f699b79e89c65458bd4973"
 });
-
-export default app;
+export default firebase;

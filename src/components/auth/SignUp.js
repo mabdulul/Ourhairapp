@@ -1,20 +1,35 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
-import app from "./base";
+import firedatabase from "./base";
 
 const SignUp = ({ history }) => {
-  const handleSignUp = useCallback(async event => {
-    event.preventDefault();
-    const { email, password } = event.target.elements;
-    try {
-      await app
-        .auth()
-        .createUserWithEmailAndPassword(email.value, password.value);
-      history.push("/");
-    } catch (error) {
-      alert(error);
-    }
-  }, [history]);
+  const handleSignUp = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password, name } = event.target.elements;
+      try {
+        await firedatabase
+          .auth()
+          .createUserWithEmailAndPassword(email.value, password.value)
+          .then(data => {
+            const { user } = data;
+
+            if (user) {
+              user
+                .updateProfile({
+                  displayName: name
+                })
+                .then(console.log("an error message"));
+            }
+          })
+          .then(data => console.log(data));
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
 
   return (
     <div>
@@ -27,6 +42,10 @@ const SignUp = ({ history }) => {
         <label>
           Password
           <input name="password" type="password" placeholder="Password" />
+        </label>
+        <label>
+          Name
+          <input name="name" type="text" placeholder="First Name" />
         </label>
         <button type="submit">Sign Up</button>
       </form>
