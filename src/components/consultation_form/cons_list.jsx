@@ -1,27 +1,51 @@
 import React, {Component, useState, useEffect} from 'react';
 import Calendar from 'react-calendar';
+import firebase from 'firebase';
+import firedatabase from '../auth/base';
 
 
 const List = () => {
 
-    const [hairType, setHairType] = useState("");
-    const [length, setLength] = useState("");
-    const [porosity, setPorosity] = useState("");
-    const [colored, setColored] = useState("");
-    const [pro, setPro] = useState("");
-    const [date, setDate] = useState("");
-    const [picture, setPicture] = useState("");
-    const [notes, setNotes] = useState("");
+  useEffect(() => {
+    fetchUserId();
+  }, []);
+  
+  const fetchUserId = () =>{
+    let user = firedatabase.auth().currentUser;
+    console.log(user.uid);
+  }
+  const [user, setUser] = useState("");
+  const [hairType, setHairType] = useState("");
+  const [length, setLength] = useState("");
+  const [porosity, setPorosity] = useState("");
+  const [colored, setColored] = useState("");
+  const [pro, setPro] = useState("");
+  const [date, setDate] = useState("");
+  const [picture, setPicture] = useState("");
+  const [notes, setNotes] = useState("");
+
+  const SubmitData = e => {
+    e.preventDefault();
+    const user = firedatabase.auth().currentUser;
+    const db = firebase.firestore();
+
+    const userRef = db.collection("Quiz_list").add({
+      hairType,
+      length,
+      porosity,
+      dye: colored,
+      pro,
+      date,
+      file: null,
+      notes
+    });
+  }
     
     return ( 
-
         <div className="container">
         <div className="row mt-5">
           <div className="col-sm-12">
-            <form 
-            action="https://hairapp-ebf66.firebaseio.json"
-            method="post" >
-
+            <form onSubmit={SubmitData}>
             <p>Hair type</p>
             <div className="form-group">
               <p>Type 1: Straight</p>
@@ -166,9 +190,9 @@ const List = () => {
                   <input
                     type="radio"
                     name="hairL"
-                    value={'option1'}
+                    value={'pixie'}
                     onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'option1'}
+                    checked = {length === 'pixie'}
                     className="form-check-input"
                   />
                   Pixie
@@ -179,9 +203,9 @@ const List = () => {
                   <input
                     type="radio"
                     name="hairL"
-                    value={'option2'}
+                    value={'short'}
                     onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'option2'}
+                    checked = {length === 'short'}
                     className="form-check-input"
                   />
                   Short
@@ -192,9 +216,9 @@ const List = () => {
                   <input
                     type="radio"
                     name="hairL"
-                    value={'option3'}
+                    value={'medium'}
                     onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'option3'}
+                    checked = {length === 'medium'}
                     className="form-check-input"
                   />
                   Medium
@@ -203,9 +227,9 @@ const List = () => {
                     <label>
                         <input type="radio"
                         name="hairL"
-                        value={'option4'}
+                        value={'long'}
                         onChange ={e => setLength(e.target.value)}
-                        checked = {length === 'option4'}
+                        checked = {length === 'long'}
                         className="form-check-input"
                         />
                         Long
@@ -220,9 +244,9 @@ const List = () => {
                   <input
                     type="radio"
                     name="porosity"
-                    value={'option1'}
+                    value={'low'}
                     onChange ={e =>  setPorosity(e.target.value)}
-                    checked = {porosity === 'option1'}
+                    checked = {porosity === 'low'}
                     className="form-check-input"
                   />
                   low
@@ -233,9 +257,9 @@ const List = () => {
                   <input
                     type="radio"
                     name="porosity"
-                    value={'option2'}
+                    value={'medium'}
                     onChange ={e =>  setPorosity(e.target.value)}
-                    checked = {porosity === 'option2'}
+                    checked = {porosity === 'medium'}
                     className="form-check-input"
                   />
                   medium
@@ -246,9 +270,9 @@ const List = () => {
                   <input
                     type="radio"
                     name="porosity"
-                    value={'option3'}
+                    value={'high'}
                     onChange ={e =>  setPorosity(e.target.value)}
-                    checked = {porosity === 'option3'}
+                    checked = {porosity === 'high'}
                     className="form-check-input"
                   />
                   high
@@ -274,9 +298,9 @@ const List = () => {
                           <label>
                               <input type="radio"
                               name="colored?"
-                              value={'pure'}
+                              value={'virgin'}
                               onChange ={e => setColored(e.target.value)}
-                              checked = {colored === 'pure'}
+                              checked = {colored === 'virgin'}
                               className="form-check-input"
                               />
                               No
@@ -355,15 +379,5 @@ const List = () => {
       </div>
     )
 }
-
-// firebase
-//   .firestore()
-//   .collection("user")
-//   .add({
-//     user: "Mike"
-//   });
-
-//   ar user = firedatabase.auth().currentUser;
-//   console.log("this users id", user.uid);
 
 export default List;
