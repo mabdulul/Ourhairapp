@@ -33,6 +33,10 @@ const SignUp = ({ history }) => {
           Password
           <input name="password" type="password" placeholder="Password" />
         </label>
+        <label>
+          Name
+          <input name="name" type="text" placeholder="First Name" />
+        </label>
         <button type="submit">Sign Up</button>
       </form>
     </div>
