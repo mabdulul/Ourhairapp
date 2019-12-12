@@ -4,7 +4,7 @@ import firedatabase from "./base";
 
 const Home = () => {
   var user = firedatabase.auth().currentUser;
-  console.log("this users id", user.uid);
+  console.log("this users home", user.uid);
   return (
     <>
       <h1>Home</h1>

@@ -9,10 +9,11 @@ const Login = ({ history }) => {
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
-        await firedatabase
+        const userAuth = await firedatabase
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
+        //history.push("/");
+        console.log("user auth is", userAuth.user.uid);
       } catch (error) {
         alert(error);
       }

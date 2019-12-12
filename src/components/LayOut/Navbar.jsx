@@ -2,9 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "../auth/Login";
 import SignUp from "../auth/SignUp";
+
+
+
 const NavBar = () => {
   return (
-    <nav className="nav-wrapper grey darken-3">
+    <nav className="nav-wrapper">
       <Router>
         <ul>
           <li>
