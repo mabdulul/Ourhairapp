@@ -12,7 +12,7 @@ const Login = ({ history }) => {
         const userAuth = await firedatabase
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
-        //history.push("/");
+        history.push("/");
         console.log("user auth is", userAuth.user.uid);
       } catch (error) {
         alert(error);
