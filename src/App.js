@@ -1,19 +1,29 @@
 import React, { useContext } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import Home from "./components/auth/Home";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
 import PrivateRoute from "./components/auth/PrivateRoute";
+import firebase from "./components/auth/base";
+import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
+<<<<<<< HEAD
+import List from "./components/consultation_form/cons_list";
+=======
 import List from "./components/consultation_form/cons_list"
 // import Navbar from "./components/LayOut/Navbar"
 
+>>>>>>> 52306a67e3a6d060102902d46ac28bad3663e793
 
 const App = () => {
   const { currentUser } = useContext(AuthContext);
-  console.log("right here ", currentUser);
   return (
     <Router>
       <div>
@@ -29,23 +39,22 @@ const App = () => {
                 </li>
               </>
             ) : (
-                <>
-                  <li>
-                    <Link to="/signup">Sign Up</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Members Login</Link>
-                  </li>
-
-                </>
-              )}
+              <>
+                <li>
+                  <Link to="/signup">Sign Up</Link>
+                </li>
+                <li>
+                  <Link to="/login">Members Login</Link>
+                </li>
+              </>
+            )}
           </ul>
           <li>
             <Link to="/stylist">Stylist</Link>
-
           </li>
         </nav>
-        <PrivateRoute exact path="/" component={Home} />
+
+        {!!currentUser && <Route exact path="/profile" component={Client} />}
         <Route exact path="/login" component={Login} />
         <Route exact path="/quiz" component={List} />
         <Route exact path="/signup" component={SignUp} />

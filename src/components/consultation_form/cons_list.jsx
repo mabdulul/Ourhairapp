@@ -1,8 +1,10 @@
-import React, {Component, useState, useEffect} from 'react';
-import Calendar from 'react-calendar';
-
+import React, { Component, useState, useEffect } from "react";
+import Calendar from "react-calendar";
+import firedatabase from "../auth/base";
 
 const List = () => {
+  // var user = firedatabase.auth().currentUser;
+  // console.log("this users clinet id", user.uid);
 
     const [hairType, setHairType] = useState("");
     const [length, setLength] = useState("");
@@ -166,51 +168,59 @@ const List = () => {
                   <input
                     type="radio"
                     name="hairL"
-                    value={'option1'}
-                    onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'option1'}
+                    value={"option4"}
+                    onChange={e => setLength(e.target.value)}
+                    checked={length === "option4"}
                     className="form-check-input"
                   />
-                  Pixie
+                  Long
+                </label>
+              </div>
+            </div>
+            <div className="form-group">
+              <div className="form-check">
+                <p>Has your hair been colored in me last two years?</p>
+                <label>
+                  <input
+                    type
+                    type="radio"
+                    name="colored?"
+                    value={"colored"}
+                    onChange={e => setColored(e.target.value)}
+                    checked={colored === "colored"}
+                    className="form-check-input"
+                  />
+                  Yes
                 </label>
               </div>
               <div className="form-check">
                 <label>
                   <input
                     type="radio"
-                    name="hairL"
-                    value={'option2'}
-                    onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'option2'}
+                    name="colored?"
+                    value={"pure"}
+                    onChange={e => setColored(e.target.value)}
+                    checked={colored === "pure"}
                     className="form-check-input"
                   />
-                  Short
+                  No
                 </label>
               </div>
+            </div>
+            <div className="form-group">
               <div className="form-check">
+                <p>If so, how was it done?</p>
                 <label>
                   <input
                     type="radio"
-                    name="hairL"
-                    value={'option3'}
-                    onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'option3'}
+                    name="process"
+                    value={"box"}
+                    onChange={e => setPro(e.target.value)}
+                    checked={pro === "box"}
                     className="form-check-input"
                   />
-                  Medium
+                  Box dyed
                 </label>
-                <div className="form-check">
-                    <label>
-                        <input type="radio"
-                        name="hairL"
-                        value={'option4'}
-                        onChange ={e => setLength(e.target.value)}
-                        checked = {length === 'option4'}
-                        className="form-check-input"
-                        />
-                        Long
-                    </label>
-                </div>
               </div>
 
             <p>Hair porosity</p>
@@ -349,13 +359,34 @@ const List = () => {
                   Save
                 </button>
               </div>
-            </form>
-          </div>
+            </div>
+            <div className="form-group">
+              <p>What is your ideal hair?</p>
+              <label>
+                <input type="file" name="hair pics" />
+              </label>
+              <label>
+                <input
+                  type="text"
+                  name="notes"
+                  placeholder="Any more notes?"
+                  className="form-text-input"
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <button className="btn btn-primary mt-2" type="submit">
+                Save
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    )
-}
+    </div>
+  );
+};
 
+export default List;
 // firebase
 //   .firestore()
 //   .collection("user")
@@ -366,4 +397,4 @@ const List = () => {
 //   ar user = firedatabase.auth().currentUser;
 //   console.log("this users id", user.uid);
 
-export default List;
+
