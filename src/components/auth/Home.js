@@ -1,11 +1,14 @@
 import React from "react";
-import app from "./base";
+import firedatabase from "./base";
+//import firebase from "./base";
 
 const Home = () => {
+  var user = firedatabase.auth().currentUser;
+  console.log("this users home", user.uid);
   return (
     <>
       <h1>Home</h1>
-      <button onClick={() => app.auth().signOut()}>Sign out</button>
+      <button onClick={() => firedatabase.auth().signOut()}>Sign out</button>
     </>
   );
 };

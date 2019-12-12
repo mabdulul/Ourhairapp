@@ -6,22 +6,12 @@ const SignUp = ({ history }) => {
   const handleSignUp = useCallback(
     async event => {
       event.preventDefault();
-      const { email, password, name } = event.target.elements;
+      const { email, password } = event.target.elements;
       try {
         await firedatabase
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value)
-          .then(data => {
-            const { user } = data;
-
-            if (user) {
-              user
-                .updateProfile({
-                  displayName: name
-                })
-                .then(console.log("an error message"));
-            }
-          })
+          .then()
           .then(data => console.log(data));
         history.push("/");
       } catch (error) {

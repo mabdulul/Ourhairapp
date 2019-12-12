@@ -1,17 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import LoginInLinks from "./LoginInLinks";
-import SignOutLinks from "./SignOutLinks";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Login from "../auth/Login";
+import SignUp from "../auth/SignUp";
 const NavBar = () => {
   return (
     <nav className="nav-wrapper grey darken-3">
-      <div className="container">
-        <Link to="/" className="brand-logo">
-          monroe's salon
-        </Link>
-        <LoginInLinks />
-        <SignOutLinks />
-      </div>
+      <Router>
+        <ul>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/login">Members Login</Link>
+          </li>
+        </ul>
+        <Route path="/login" exact component={Login} />
+        <Route path="/signup" exact component={SignUp} />
+      </Router>
     </nav>
   );
 };
