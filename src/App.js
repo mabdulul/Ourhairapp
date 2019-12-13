@@ -16,6 +16,7 @@ import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
 import List from "./components/consultation_form/cons_list";
 import LogOut from "./components/ourAuth/LogOut";
+
 // Icons
 import home from "./images/home.png";
 import quiz from "./images/quiz.png";
