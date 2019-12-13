@@ -1,3 +1,4 @@
+
 import React, {Component, useState, useEffect} from 'react';
 import Calendar from 'react-calendar';
 import firebase from 'firebase';
@@ -5,7 +6,8 @@ import firedatabase from '../auth/base';
 
 
 const List = () => {
-
+	// var user = firedatabase.auth().currentUser;
+	// console.log("this users clinet id", user.uid);
   useEffect(() => {
     fetchUserId();
   }, []);
@@ -309,32 +311,65 @@ const List = () => {
               </div>
 {colored==="colored" ? <>
 
-                <div className="form-group">
-                  <div className="form-check">
-                  <p>If so, how was it done?</p>
-                    <label>
-                      <input type="radio"
-                      name="process"
-                      value={'box'}
-                      onChange= {e => setPro(e.target.value)}
-                      checked= {pro === 'box'}
-                      className="form-check-input"
-                      />Box dyed
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <label>
-                      <input type="radio"
-                      name="process"
-                      value={'solon'}
-                      onChange= {e => setPro(e.target.value)}
-                      checked= {pro === 'solon'}
-                      className="form-check-input"
-                      />Professionally
-                    </label>
-                  </div>
-                </div>
 
+							<div className="form-group">
+								<p>What is your ideal hair?</p>
+								<label>
+									<input
+										type="file"
+										name="hair pics"
+										onChange={e =>
+											setPicture(e.target.value)
+										}
+									/>
+								</label>
+								<label>
+									<input
+										type="text"
+										name="notes"
+										placeholder="Any more notes?"
+										value={notes}
+										onChange={e => setNotes(e.target.value)}
+										className="form-text-input"
+									/>
+								</label>
+							</div>
+
+							<div className="form-group">
+								<button
+									className="btn btn-primary mt-2"
+									type="submit">
+									Save
+								</button>
+							</div>
+						</div>
+						<div className="form-group">
+							<p>What is your ideal hair?</p>
+							<label>
+								<input type="file" name="hair pics" />
+							</label>
+							<label>
+								<input
+									type="text"
+									name="notes"
+									placeholder="Any more notes?"
+									className="form-text-input"
+								/>
+							</label>
+						</div>
+						<div className="form-group">
+							<button
+								className="btn btn-primary mt-2"
+								type="submit">
+								Save
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	);
+};
 
                 <div className="form-group">
                   <div className="form-calendar">
@@ -381,3 +416,4 @@ const List = () => {
 }
 
 export default List;
+
