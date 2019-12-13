@@ -1,7 +1,6 @@
 import React from "react";
 import * as firebase from "firebase/app";
 import firedatabase from "../auth/base";
-
 class Client extends React.Component {
   state = {
     fullName: "",
@@ -9,11 +8,9 @@ class Client extends React.Component {
     birthday: "",
     uid: ""
   };
-
   componentDidMount = () => {
     this.fetchCurrentUser();
   };
-
   fetchCurrentUser = async () => {
     var user = firedatabase.auth().currentUser;
     var name, email, photoUrl, uid, emailVerified;
@@ -26,29 +23,27 @@ class Client extends React.Component {
       // this value to authenticate with your backend server, if
       // you have one. Use User.getToken() instead.
     }
-    console.log(user);
+    this.setState({
+      uid: user.uid
+    });
   };
-
   addUser = e => {
     e.preventDefault();
     const db = firebase.firestore();
     const userRef = db.collection("client").add({
+      userId: this.state.uid,
       fullname: this.state.fullname,
       password: this.state.password,
       birthday: this.state.birthday
     });
   };
-
   updateInput = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
-
   render() {
-    // if (user) {
-    // console.log(user);
-    // }
+    console.log(this.state);
     return (
       <form onSubmit={this.addUser}>
         <input
