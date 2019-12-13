@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Calendar from "react-calendar";
+import firebase from "firebase";
 import firedatabase from "../auth/base";
 
 const List = () => {
@@ -8,10 +9,10 @@ const List = () => {
   }, []);
 
   const fetchUserId = () => {
-    var user = firedatabase.auth().currentUser;
+    let user = firedatabase.auth().currentUser;
     console.log(user.uid);
   };
-
+  const [user, setUser] = useState("");
   const [hairType, setHairType] = useState("");
   const [length, setLength] = useState("");
   const [porosity, setPorosity] = useState("");
@@ -21,11 +22,28 @@ const List = () => {
   const [picture, setPicture] = useState("");
   const [notes, setNotes] = useState("");
 
+  const SubmitData = e => {
+    e.preventDefault();
+    const user = firedatabase.auth().currentUser;
+    const db = firebase.firestore();
+
+    const userRef = db.collection("Quiz_list").add({
+      hairType,
+      length,
+      porosity,
+      dye: colored,
+      pro,
+      date,
+      file: null,
+      notes
+    });
+  };
+
   return (
     <div className="container">
       <div className="row mt-5">
         <div className="col-sm-12">
-          <form action="https://hairapp-ebf66.firebaseio.json" method="post">
+          <form onSubmit={SubmitData}>
             <p>Hair type</p>
             <div className="form-group">
               <p>Type 1: Straight</p>
@@ -218,28 +236,65 @@ const List = () => {
                   <input
                     type="radio"
                     name="hairL"
-                    value={"option4"}
+                    value={"pixie"}
                     onChange={e => setLength(e.target.value)}
-                    checked={length === "option4"}
+                    checked={length === "pixie"}
                     className="form-check-input"
                   />
-                  Long
+                  Pixie
                 </label>
+              </div>
+              <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="hairL"
+                    value={"short"}
+                    onChange={e => setLength(e.target.value)}
+                    checked={length === "short"}
+                    className="form-check-input"
+                  />
+                  Short
+                </label>
+              </div>
+              <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="hairL"
+                    value={"medium"}
+                    onChange={e => setLength(e.target.value)}
+                    checked={length === "medium"}
+                    className="form-check-input"
+                  />
+                  Medium
+                </label>
+                <div className="form-check">
+                  <label>
+                    <input
+                      type="radio"
+                      name="hairL"
+                      value={"long"}
+                      onChange={e => setLength(e.target.value)}
+                      checked={length === "long"}
+                      className="form-check-input"
+                    />
+                    Long
+                  </label>
+                </div>
               </div>
             </div>
 
             <p>Hair porosity</p>
             <div className="form-group">
               <div className="form-check">
-                <p>Has your hair been colored in me last two years?</p>
                 <label>
                   <input
-                    type
                     type="radio"
                     name="porosity"
-                    value={"option1"}
+                    value={"low"}
                     onChange={e => setPorosity(e.target.value)}
-                    checked={porosity === "option1"}
+                    checked={porosity === "low"}
                     className="form-check-input"
                   />
                   low
@@ -250,12 +305,12 @@ const List = () => {
                   <input
                     type="radio"
                     name="porosity"
-                    value={"option2"}
+                    value={"medium"}
                     onChange={e => setPorosity(e.target.value)}
-                    checked={porosity === "option2"}
+                    checked={porosity === "medium"}
                     className="form-check-input"
                   />
-                  medium
+                  Yes
                 </label>
               </div>
               <div className="form-check">
@@ -263,16 +318,15 @@ const List = () => {
                   <input
                     type="radio"
                     name="porosity"
-                    value={"option3"}
+                    value={"high"}
                     onChange={e => setPorosity(e.target.value)}
-                    checked={porosity === "option3"}
+                    checked={porosity === "high"}
                     className="form-check-input"
                   />
                   high
                 </label>
               </div>
             </div>
-
             <div className="form-group">
               <p>Has your hair been colored in me last two years?</p>
               <div className="form-check">
@@ -293,9 +347,9 @@ const List = () => {
                   <input
                     type="radio"
                     name="colored?"
-                    value={"pure"}
+                    value={"virgin"}
                     onChange={e => setColored(e.target.value)}
-                    checked={colored === "pure"}
+                    checked={colored === "virgin"}
                     className="form-check-input"
                   />
                   No
@@ -343,7 +397,6 @@ const List = () => {
             ) : (
               ""
             )}
-
             <div className="form-group">
               <p>What is your ideal hair?</p>
               <label>
@@ -375,5 +428,4 @@ const List = () => {
     </div>
   );
 };
-
 export default List;
