@@ -15,44 +15,87 @@ import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
 import List from "./components/consultation_form/cons_list";
+// Icons
+import home from "./images/home.png";
+import quiz from "./images/quiz.png";
+import stylist from "./images/style.png";
+import signup from "./images/signup.png";
+import signin from "./images/signin.png";
+
 // import Navbar from "./components/LayOut/Navbar"
 
 const App = () => {
 	const { currentUser } = useContext(AuthContext);
 	return (
 		<Router>
-			<div>
-				<nav>
-					<ul>
+			<div className="app">
+				<nav className="nav-bar">
+					<ul class="nav flex-column">
 						{!!currentUser ? (
 							<>
-								<li>
-									<Link to="/">DashBoard</Link>
+								<li class="nav-item" className="nav-icon">
+									<img
+										src={home}
+										className="icons"
+										alt="home"
+									/>
+									<Link class="nav-link" to="/">
+										DashBoard
+									</Link>
 								</li>
-								<li>
-									<Link to="/quiz">Quiz</Link>
+								<li class="nav-item" className="nav-icon">
+									<img
+										src={quiz}
+										className="icons"
+										alt="quiz"
+									/>
+									<Link class="nav-link" to="/quiz">
+										Quiz
+									</Link>
 								</li>
 							</>
 						) : (
 							<>
-								<li>
-									<Link to="/signup">Sign Up</Link>
+								<li class="nav-item" className="nav-icon">
+									<img
+										src={signup}
+										className="icons"
+										alt="sign up"
+									/>
+									<Link class="nav-link" to="/signup">
+										Sign Up
+									</Link>
 								</li>
-								<li>
-									<Link to="/login">Members Login</Link>
+								<li class="nav-item" className="nav-icon">
+									<img
+										src={signin}
+										className="icons"
+										alt="sign in"
+									/>
+									<Link class="nav-link" to="/login">
+										Members Login
+									</Link>
 								</li>
 							</>
 						)}
+						<li class="nav-item" className="nav-icon">
+							<img
+								src={stylist}
+								className="icons"
+								alt="stylist"
+							/>
+							<Link class="nav-link" to="/stylist">
+								Stylist
+							</Link>
+						</li>
 					</ul>
-					<li>
-						<Link to="/stylist">Stylist</Link>
-					</li>
 				</nav>
 
 				{!!currentUser && (
 					<Route exact path="/profile" component={Client} />
 				)}
-				<Route exact path="/" component={Home} />
+				{!!currentUser && <Route exact path="/" component={Home} />}
+
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/quiz" component={List} />
 				<Route exact path="/signup" component={SignUp} />
