@@ -9,6 +9,7 @@ import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
 import LogOut from "./components/ourAuth/LogOut";
 import Home from "./components/auth/Home";
 import List from "./components/consultation_form/cons_list";
+import MakingApts from "./components/Cust_DashBoard/makingapts";
 
 // Icons
 import home from "./images/home.png";
@@ -45,6 +46,11 @@ const App = () => {
                       Sign Out
                     </Link>
                   </li>
+                  <li>
+                    <Link class="nav-link" component={MakingApts}>
+                      MakingApts
+                    </Link>
+                  </li>
                 </>
               ) : (
                 <>
@@ -74,8 +80,10 @@ const App = () => {
         <div class="container" className="content-container">
           {!!currentUser && <Route exact path="/profile" component={Client} />}
           {!!currentUser && <Route exact path="/" component={Home} />}
+          {!!currentUser && (
+            <Route exact path="/MakingApts" component={MakingApts} />
+          )}
 
-<<<<<<< HEAD
           <Route exact path="/login" component={Login} />
           <Route exact path="/quiz" component={List} />
           <Route exact path="/signup" component={SignUp} />
@@ -86,10 +94,5 @@ const App = () => {
       {/* <List /> */}
     </Router>
   );
-=======
-			{/* <List /> */}
-		</Router>
-	);
->>>>>>> 5c9ee7e05f40bf5ef9ce439796c6b36053427a5f
 };
 export default App;
