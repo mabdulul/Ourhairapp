@@ -3,10 +3,13 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
-//import Client from "./components/Cust_DashBoard/client";
+import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
-// import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
+import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
 import LogOut from "./components/ourAuth/LogOut";
+import Home from "./components/auth/Home";
+import List from "./components/consultation_form/cons_list";
+
 // Icons
 import home from "./images/home.png";
 import quiz from "./images/quiz.png";
@@ -115,6 +118,5 @@ const App = () => {
 			{/* <List /> */}
 		</Router>
 	);
-
 };
 export default App;
