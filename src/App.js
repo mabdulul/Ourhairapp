@@ -7,17 +7,8 @@ import Home from "./components/auth/Home";
 import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
-import LogOut from "./components/ourAuth/LogOut";
-// Icons
-import home from "./images/home.png";
-import quiz from "./images/quiz.png";
-import stylist from "./images/style.png";
-import signup from "./images/signup.png";
-import signin from "./images/signin.png";
-import signout from "./images/signoff.png";
-
 import List from "./components/consultation_form/cons_list";
-
+// import List from "./components/consultation_form/cons_list";
 // import Navbar from "./components/LayOut/Navbar"
 
 const App = () => {

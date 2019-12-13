@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import firedatabase from "./base";
+import "../../Stylesheets/SignUp.css";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(
@@ -22,24 +23,43 @@ const SignUp = ({ history }) => {
   );
 
   return (
-    <div>
-      <h1>Sign up</h1>
-      <form onSubmit={handleSignUp}>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <label>
-          Name
-          <input name="name" type="text" placeholder="First Name" />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+    <section className="container">
+      <div className="row">
+        <div className="col-sm-12 col-md-12 col-lg-12 signup-section">
+          <div className="form signup-box">
+            <form className="form-login Login" onSubmit={handleSignUp}>
+              <label htmlFor="Email">
+                <input
+                  className="signup-input"
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                />
+              </label>
+              <label>
+                <input
+                  className="signup-input"
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                />
+              </label>
+              <label>
+                <input
+                  className="signup-input"
+                  name="name"
+                  type="text"
+                  placeholder="First Name"
+                />
+              </label>
+              <button className="signup-button" type="submit">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
