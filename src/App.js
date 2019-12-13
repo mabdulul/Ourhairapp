@@ -3,14 +3,14 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
-import Home from "./components/auth/Home";
 import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
+import LogOut from "./components/ourAuth/LogOut";
+import Home from "./components/auth/Home";
 import List from "./components/consultation_form/cons_list";
-// import List from "./components/consultation_form/cons_list";
-// import Navbar from "./components/LayOut/Navbar"
 
+// Icons
 import home from "./images/home.png";
 import quiz from "./images/quiz.png";
 import signup from "./images/signup.png";
@@ -75,6 +75,7 @@ const App = () => {
           {!!currentUser && <Route exact path="/profile" component={Client} />}
           {!!currentUser && <Route exact path="/" component={Home} />}
 
+<<<<<<< HEAD
           <Route exact path="/login" component={Login} />
           <Route exact path="/quiz" component={List} />
           <Route exact path="/signup" component={SignUp} />
@@ -85,5 +86,10 @@ const App = () => {
       {/* <List /> */}
     </Router>
   );
+=======
+			{/* <List /> */}
+		</Router>
+	);
+>>>>>>> 5c9ee7e05f40bf5ef9ce439796c6b36053427a5f
 };
 export default App;
