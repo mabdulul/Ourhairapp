@@ -11,6 +11,12 @@ import List from "./components/consultation_form/cons_list";
 // import List from "./components/consultation_form/cons_list";
 // import Navbar from "./components/LayOut/Navbar"
 
+import home from "./images/home.png";
+import quiz from "./images/quiz.png";
+import signup from "./images/signup.png";
+import signin from "./images/signin.png";
+import stylist from "./images/style.png";
+import signout from "./images/signoff.png";
 const App = () => {
   const { currentUser } = useContext(AuthContext);
   return (

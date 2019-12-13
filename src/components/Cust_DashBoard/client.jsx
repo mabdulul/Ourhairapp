@@ -17,13 +17,9 @@ class Client extends React.Component {
     if (user != null) {
       uid = user.uid;
     }
-<<<<<<< HEAD
     this.setState({
       uid: user.uid
     });
-=======
-    console.log(user.uid);
->>>>>>> rhondabranch
   };
   addUser = e => {
     e.preventDefault();
