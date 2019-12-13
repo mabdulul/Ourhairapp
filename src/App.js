@@ -14,13 +14,9 @@ import firebase from "./components/auth/base";
 import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
-<<<<<<< HEAD
 import List from "./components/consultation_form/cons_list";
-=======
-import List from "./components/consultation_form/cons_list"
+// import List from "./components/consultation_form/cons_list";
 // import Navbar from "./components/LayOut/Navbar"
-
->>>>>>> 52306a67e3a6d060102902d46ac28bad3663e793
 
 const App = () => {
   const { currentUser } = useContext(AuthContext);
@@ -36,6 +32,9 @@ const App = () => {
                 </li>
                 <li>
                   <Link to="/quiz">Quiz</Link>
+                </li>
+                <li>
+                  <Link to="/home">Home</Link>
                 </li>
               </>
             ) : (
@@ -55,6 +54,9 @@ const App = () => {
         </nav>
 
         {!!currentUser && <Route exact path="/profile" component={Client} />}
+        {!!currentUser && <Route exact path="/home" component={Home} />}
+        {!!currentUser && <Route exact path="/profile" component={SignUp} />}
+
         <Route exact path="/login" component={Login} />
         <Route exact path="/quiz" component={List} />
         <Route exact path="/signup" component={SignUp} />
