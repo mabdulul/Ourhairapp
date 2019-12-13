@@ -1,20 +1,11 @@
 import React, { useContext } from "react";
 import "./App.css";
-import {
-	BrowserRouter as Router,
-	Route,
-	Link,
-	Redirect
-} from "react-router-dom";
-import Home from "./components/auth/Home";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
-import PrivateRoute from "./components/auth/PrivateRoute";
-import firebase from "./components/auth/base";
-import Client from "./components/Cust_DashBoard/client";
+//import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
-import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
-import List from "./components/consultation_form/cons_list";
+// import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
 import LogOut from "./components/ourAuth/LogOut";
 
 // Icons
@@ -125,6 +116,6 @@ const App = () => {
 			{/* <List /> */}
 		</Router>
 	);
-};
 
+};
 export default App;
