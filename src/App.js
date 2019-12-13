@@ -34,13 +34,21 @@ const App = () => {
 						{!!currentUser ? (
 							<>
 								<li class="nav-item" className="nav-icon">
-									<img src={home} className="icons" />
+									<img
+										src={home}
+										className="icons"
+										alt="home"
+									/>
 									<Link class="nav-link" to="/">
 										DashBoard
 									</Link>
 								</li>
 								<li class="nav-item" className="nav-icon">
-									<img src={quiz} className="icons" />
+									<img
+										src={quiz}
+										className="icons"
+										alt="quiz"
+									/>
 									<Link class="nav-link" to="/quiz">
 										Quiz
 									</Link>
@@ -49,13 +57,21 @@ const App = () => {
 						) : (
 							<>
 								<li class="nav-item" className="nav-icon">
-									<img src={signup} className="icons" />
+									<img
+										src={signup}
+										className="icons"
+										alt="sign up"
+									/>
 									<Link class="nav-link" to="/signup">
 										Sign Up
 									</Link>
 								</li>
 								<li class="nav-item" className="nav-icon">
-									<img src={signin} className="icons" />
+									<img
+										src={signin}
+										className="icons"
+										alt="sign in"
+									/>
 									<Link class="nav-link" to="/login">
 										Members Login
 									</Link>
@@ -63,7 +79,11 @@ const App = () => {
 							</>
 						)}
 						<li class="nav-item" className="nav-icon">
-							<img src={stylist} className="icons" />
+							<img
+								src={stylist}
+								className="icons"
+								alt="stylist"
+							/>
 							<Link class="nav-link" to="/stylist">
 								Stylist
 							</Link>
