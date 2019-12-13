@@ -1,3 +1,6 @@
+.app {
+	display: flex;
+}
 .nav-icon {
 	display: flex;
 }
@@ -9,4 +12,8 @@
 
 .icons {
 	width: 40px;
+}
+
+.content-container {
+	padding: 120px;
 }
