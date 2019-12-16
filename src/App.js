@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./App.css";
+import "./Stylesheets/App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
@@ -18,7 +18,11 @@ import signup from "./images/signup.png";
 import signin from "./images/signin.png";
 import stylist from "./images/style.png";
 import signout from "./images/signoff.png";
-import appointments from "./images/appt.png";
+import past from "./images/past.png";
+
+import Navbar from "./components/LayOut/Navbar";
+
+import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
 
 const App = () => {
   const { currentUser } = useContext(AuthContext);
@@ -26,79 +30,89 @@ const App = () => {
     <Router>
       <div className="app">
         <div>
+          <Navbar />
           <nav className="nav-bar">
             <ul class="nav flex-column">
               {!!currentUser ? (
                 <>
-                  <li class="nav-item" className="nav-icon">
+                  <li className="nav-icon">
                     <img src={home} className="icons" alt="home" />
-                    <Link class="nav-link" to="/">
+                    <Link className="nav-link" to="/">
                       DashBoard
                     </Link>
                   </li>
-                  <li class="nav-item" className="nav-icon">
+                  <li className="nav-icon">
                     <img src={quiz} className="icons" alt="quiz" />
-                    <Link class="nav-link" to="/quiz">
+                    <Link className="nav-link" to="/quiz">
                       Quiz
                     </Link>
                   </li>
-                  <li class="nav-item" className="nav-icon">
+                  <li className="nav-icon">
                     <img src={signout} className="icons" alt="sign out" />
-                    <Link class="nav-link" component={Home}>
+                    <Link className="nav-link" component={Home}>
                       Sign Out
                     </Link>
                   </li>
-                  <li class="nav-item" className="nav-icon">
-                    <img
-                      src={appointments}
-                      className="icons"
-                      alt="make appointment"
-                    />
-                    <Link class="nav-link" to="/MakingApts">
-                      MakingApts
+                  <li className="nav-icon">
+                    <img src={past} className="icons" alt="past appointments" />
+                    <Link className="nav-link" to="/pastAppts">
+                      Past Appointments
                     </Link>
                   </li>
                 </>
               ) : (
                 <>
-                  <li class="nav-item" className="nav-icon">
+                  <li className="nav-icon">
                     <img src={signup} className="icons" alt="sign up" />
-                    <Link class="nav-link" to="/signup">
+                    <Link className="nav-link" to="/signup">
                       Sign Up
                     </Link>
                   </li>
-                  <li class="nav-item" className="nav-icon">
+                  <li className="nav-icon">
                     <img src={signin} className="icons" alt="sign in" />
-                    <Link class="nav-link" to="/login">
+                    <Link className="nav-link" to="/login">
                       Members Login
                     </Link>
                   </li>
                 </>
               )}
-              <li class="nav-item" className="nav-icon">
+              <li className="nav-icon">
                 <img src={stylist} className="icons" alt="stylist" />
-                <Link class="nav-link" to="/stylist">
+                <Link className="nav-link" to="/stylist">
                   Stylist
                 </Link>
               </li>
             </ul>
           </nav>
         </div>
-        <div class="container" className="content-container">
+        <div className="container" className="content-container">
           {!!currentUser && <Route exact path="/profile" component={Client} />}
-          {!!currentUser && <Route exact path="/" component={Home} />}
           {!!currentUser && (
-            <Route exact path="/MakingApts" component={MakingApts} />
+            <Route exact path="/pastAppts" component={PastAnAppts} />
           )}
-
           <Route exact path="/login" component={Login} />
           <Route exact path="/quiz" component={List} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/stylist" component={Stylist_Quiz_List} />
+
+          <div className="welcome">
+            <h1>Welcome, User!</h1>
+
+            <div className="results">
+              <h3>Quiz Results</h3>
+              <h5>Take the quiz again to update your hair results</h5>
+              <ul>
+                <li>Hair Type: </li>
+                <li>Hair Length: </li>
+                <li>Hair Porosity: </li>
+                <li>Has your hair been colored in the last two years? </li>
+                <li>How was it done? </li>
+                <li>When was it colored? </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* <List /> */}
     </Router>
   );
 };
