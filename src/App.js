@@ -52,5 +52,6 @@ const App = () => {
       {/* <List /> */}
     </Router>
   );
+
 };
 export default App;

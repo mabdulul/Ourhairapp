@@ -1,0 +1,12 @@
+.nav-icon {
+	display: flex;
+}
+
+.nav-bar {
+	padding-top: 100px;
+	padding-left: 50px;
+}
+
+.icons {
+	width: 40px;
+}
