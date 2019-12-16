@@ -10,7 +10,6 @@
 body {
 	margin: 0;
 	font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
-	color: #fff;
 	padding-left: 240px;
 }
 main {
@@ -102,14 +101,12 @@ main {
 		height: 40px;
 		position: absolute;
 		left: 100%;
-		background: #5bc995;
 	}
 	.menu .smartphone-menu-trigger:before,
 	.menu .smartphone-menu-trigger:after {
 		content: "";
 		width: 50%;
 		height: 2px;
-		background: #fff;
 		border-radius: 10px;
 		position: absolute;
 		top: 45%;
