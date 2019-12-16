@@ -83,20 +83,31 @@ const App = () => {
         </div>
         <div className="container" className="content-container">
           {!!currentUser && <Route exact path="/profile" component={Client} />}
-          {!!currentUser && <Route exact path="/" component={Home} />}
           {!!currentUser && (
             <Route exact path="/pastAppts" component={PastAnAppts} />
           )}
+        <Route exact path="/login" component={Login} />
+					<Route exact path="/quiz" component={List} />
+					<Route exact path="/signup" component={SignUp} />
+					<Route
+						exact
+						path="/stylist"
+						component={Stylist_Quiz_List}
+					/>
 
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/quiz" component={List} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/stylist" component={Stylist_Quiz_List} />
-        </div>
-      </div>
+					<div className="welcome">
+						<h1>Welcome, User!</h1>
 
-      {/* <List /> */}
-    </Router>
-  );
+						<div className="results">
+							<h3>Quiz Results</h3>
+							<ul>
+								<li>results go here</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</Router>
+	);
 };
 export default App;

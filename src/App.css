@@ -4,10 +4,9 @@
 .nav-icon {
 	display: flex;
 }
-
 .nav-bar {
-	padding-top: 100px;
-	padding-left: 50px;
+	padding-top: 130px;
+	padding-left: 60px;
 }
 
 .icons {
@@ -15,5 +14,11 @@
 }
 
 .content-container {
-	padding: 120px;
+	padding: 60px;
+}
+.welcome {
+	padding: 20px;
+}
+.results {
+	padding: 50px;
 }
