@@ -1,0 +1,24 @@
+.app {
+	display: flex;
+}
+.nav-icon {
+	display: flex;
+}
+.nav-bar {
+	padding-top: 130px;
+	padding-left: 60px;
+}
+
+.icons {
+	width: 40px;
+}
+
+.content-container {
+	padding: 60px;
+}
+.welcome {
+	padding: 20px;
+}
+.results {
+	padding: 50px;
+}
