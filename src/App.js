@@ -27,7 +27,6 @@ import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
 import Dashboard from "./components/Cust_DashBoard/dashboard";
 
 const App = () => {
-
 	const { currentUser } = useContext(AuthContext);
 	return (
 		<Router>
@@ -161,6 +160,5 @@ const App = () => {
 			</div>
 		</Router>
 	);
-
 };
 export default App;
