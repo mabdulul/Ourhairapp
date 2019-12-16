@@ -324,7 +324,8 @@ const List = () => {
 						</div>
 						<div className="form-group">
 							<p>
-								Has your hair been colored in me last two years?
+								Has your hair been colored in the last two
+								years?
 							</p>
 							<div className="form-check">
 								<label>
