@@ -14,7 +14,7 @@ const SignUp = ({ history }) => {
           .createUserWithEmailAndPassword(email.value, password.value)
           .then()
           .then(data => console.log(data));
-        history.push("/");
+        history.push("/quiz");
       } catch (error) {
         alert(error);
       }
