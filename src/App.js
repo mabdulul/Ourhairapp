@@ -20,8 +20,8 @@ import stylist from "./images/style.png";
 import signout from "./images/signoff.png";
 import past from "./images/past.png";
 import appt from "./images/appt.png";
-
-import Navbar from "./components/LayOut/Navbar";
+import logo from "./images/logo.svg";
+import navlogo from "./images/topnav2.svg";
 
 import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
 import Dashboard from "./components/Cust_DashBoard/dashboard";
@@ -32,21 +32,90 @@ const App = () => {
 		<Router>
 			<div className="app">
 				<div>
-					<Navbar />
+					<>
+						<nav className="navbar navbar-expand-lg navbar-light">
+							<div className="nav-box">
+								<a className="navbar-brand" href="#">
+									<img
+										src={logo}
+										alt="logo"
+										height="36"
+										width="36"
+									/>
+									Ease
+								</a>
+							</div>
+							<button
+								className="navbar-toggler topnav-menu"
+								type="button"
+								data-toggle="collapse"
+								data-target="#navbarNav"
+								aria-controls="navbarNav"
+								aria-expanded="false"
+								aria-label="Toggle navigation">
+								<span className="topnav-menu">
+									<img
+										src={navlogo}
+										alt="menu"
+										height="22"
+										width="22"
+									/>
+								</span>
+							</button>
+							<div
+								className="collapse navbar-collapse navbar-right"
+								id="navbarNav">
+								<ul className="navbar-nav">
+									{!!currentUser ? (
+										<>
+											<li className="nav-item active">
+												<a
+													className="nav-link"
+													href="#">
+													Home{" "}
+													<span class="sr-only">
+														(current)
+													</span>
+												</a>
+											</li>
+											<li className="nav-item nav-up">
+												<Link
+													className="nav-link"
+													component={Home}>
+													Sign Out
+												</Link>
+											</li>
+										</>
+									) : (
+										<>
+											<li
+												className="nav-item"
+												className="nav-icon">
+												<Link
+													className="nav-link"
+													to="/signup">
+													Sign Up
+												</Link>
+											</li>
+											<li
+												className="nav-item"
+												className="nav-icon">
+												<Link
+													className="nav-link"
+													to="/login">
+													Members Login
+												</Link>
+											</li>
+										</>
+									)}
+								</ul>
+							</div>
+						</nav>
+					</>
 					<nav className="nav-bar">
 						<ul class="nav flex-column">
 							{!!currentUser ? (
 								<>
-									<li className="nav-icon">
-										<img
-											src={home}
-											className="icons"
-											alt="home"
-										/>
-										<Link className="nav-link" to="/">
-											DashBoard
-										</Link>
-									</li>
 									<li className="nav-icon">
 										<img
 											src={quiz}
@@ -55,18 +124,6 @@ const App = () => {
 										/>
 										<Link className="nav-link" to="/quiz">
 											Quiz
-										</Link>
-									</li>
-									<li className="nav-icon">
-										<img
-											src={signout}
-											className="icons"
-											alt="sign out"
-										/>
-										<Link
-											className="nav-link"
-											component={Home}>
-											Sign Out
 										</Link>
 									</li>
 									<li className="nav-icon">
@@ -81,7 +138,7 @@ const App = () => {
 											Past Appointments
 										</Link>
 									</li>
-									<li class="nav-item" className="nav-icon">
+									<li className="nav-icon">
 										<img
 											src={appt}
 											className="icons"
@@ -93,39 +150,8 @@ const App = () => {
 									</li>
 								</>
 							) : (
-								<>
-									<li className="nav-icon">
-										<img
-											src={signup}
-											className="icons"
-											alt="sign up"
-										/>
-										<Link className="nav-link" to="/signup">
-											Sign Up
-										</Link>
-									</li>
-									<li className="nav-icon">
-										<img
-											src={signin}
-											className="icons"
-											alt="sign in"
-										/>
-										<Link className="nav-link" to="/login">
-											Members Login
-										</Link>
-									</li>
-								</>
+								<></>
 							)}
-							<li className="nav-icon">
-								<img
-									src={stylist}
-									className="icons"
-									alt="stylist"
-								/>
-								<Link className="nav-link" to="/stylist">
-									Stylist
-								</Link>
-							</li>
 						</ul>
 					</nav>
 				</div>
@@ -155,7 +181,6 @@ const App = () => {
 						path="/stylist"
 						component={Stylist_Quiz_List}
 					/>
-					{/* {!!currentUser && <Dashboard />} */}
 				</div>
 			</div>
 		</Router>
