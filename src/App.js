@@ -71,7 +71,7 @@ const App = () => {
 											<li className="nav-item active">
 												<a
 													className="nav-link"
-													href="#">
+													href="/">
 													Home{" "}
 													<span class="sr-only">
 														(current)
