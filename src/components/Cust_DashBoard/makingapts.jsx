@@ -1,11 +1,12 @@
 import React from "react";
 import * as firebase from "firebase/app";
 import firedatabase from "../auth/base";
-class Client extends React.Component {
+import Calendar from "react-calendar";
+
+class MakingApts extends React.Component {
   state = {
-    fullName: "",
-    password: "",
-    birthday: "",
+    appointment: "",
+    notes: "",
     uid: ""
   };
   componentDidMount = () => {
@@ -13,7 +14,7 @@ class Client extends React.Component {
   };
   fetchCurrentUser = async () => {
     var user = firedatabase.auth().currentUser;
-    var name, email, photoUrl, uid, emailVerified;
+    var uid, photoUrl;
     if (user != null) {
       uid = user.uid;
     }
@@ -24,11 +25,10 @@ class Client extends React.Component {
   addUser = e => {
     e.preventDefault();
     const db = firebase.firestore();
-    const userRef = db.collection("client").add({
-      userId: this.state.uid,
-      fullname: this.state.fullname,
-      password: this.state.password,
-      birthday: this.state.birthday
+    const userRef = db.collection("appointments").add({
+      Cust_Notes: this.state.notes,
+      Date_of_Appt: this.state.appointment,
+      UserId: this.state.uid
     });
   };
   updateInput = e => {
@@ -42,20 +42,14 @@ class Client extends React.Component {
       <form onSubmit={this.addUser}>
         <input
           type="text"
-          name="fullname"
-          placeholder="Full Name"
-          onChange={this.updateInput}
-        />
-        <input
-          type="text"
-          name="password"
-          placeholder="Password"
-          onChange={this.updateInput}
-        />
-        <input
-          type="text"
-          name="birthday"
+          name="appointments"
           placeholder="MM-DD-YYYY"
+          onChange={this.updateInput}
+        />
+        <input
+          type="text"
+          name="notes"
+          placeholder="notes"
           onChange={this.updateInput}
         />
         <button type="submit">Submit</button>
@@ -63,4 +57,5 @@ class Client extends React.Component {
     );
   }
 }
-export default Client;
+
+export default MakingApts;
