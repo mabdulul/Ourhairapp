@@ -18,7 +18,7 @@ import signup from "./images/signup.png";
 import signin from "./images/signin.png";
 import signout from "./images/signoff.png";
 
-// import Navbar from "./components/LayOut/Navbar"
+import Navbar from "./components/LayOut/Navbar";
 
 const App = () => {
 	const { currentUser } = useContext(AuthContext);
@@ -26,6 +26,7 @@ const App = () => {
 		<Router>
 			<div className="app">
 				<div>
+					<Navbar />
 					<nav className="nav-bar">
 						<ul class="nav flex-column">
 							{!!currentUser ? (
@@ -102,7 +103,6 @@ const App = () => {
 					{!!currentUser && (
 						<Route exact path="/profile" component={Client} />
 					)}
-					{!!currentUser && <Route exact path="/" component={Home} />}
 
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/quiz" component={List} />
