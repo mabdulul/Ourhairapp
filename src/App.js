@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./App.css";
+import "./Stylesheets/App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
