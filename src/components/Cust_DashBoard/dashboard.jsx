@@ -22,6 +22,40 @@ class Dashboard extends Component {
 						<div>
 							<PastAppts />
 						</div>
+						<div className="welcome">
+							<h1>Welcome, User!</h1>
+
+							<div className="results">
+								<h3>Quiz Results</h3>
+								<h5>
+									Take the quiz again to update your hair
+									results
+								</h5>
+								<ul>
+									<li>
+										<b>Hair Type: </b>
+									</li>
+									<li>
+										<b>Hair Length: </b>
+									</li>
+									<li>
+										<b>Hair Porosity: </b>
+									</li>
+									<li>
+										<b>
+											Has your hair been colored in the
+											last two years?{" "}
+										</b>
+									</li>
+									<li>
+										<b>How was it done? </b>
+									</li>
+									<li>
+										<b>When was it colored? </b>
+									</li>
+								</ul>
+							</div>
+						</div>
 					</React.Fragment>
 				) : (
 					// Is NOT logged in
