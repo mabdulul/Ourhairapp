@@ -31,7 +31,7 @@ const App = () => {
 	return (
 		<Router>
 			<div className="app">
-				<div>
+				<div className="menu">
 					<>
 						<nav className="navbar navbar-expand-lg navbar-light">
 							<div className="nav-box">
@@ -119,7 +119,7 @@ const App = () => {
 									<li className="nav-icon">
 										<img
 											src={quiz}
-											className="icons"
+											className="icons-quiz"
 											alt="quiz"
 										/>
 										<Link className="nav-link" to="/quiz">
@@ -145,7 +145,7 @@ const App = () => {
 											alt="make appointment"
 										/>
 										<Link class="nav-link" to="/MakingApts">
-											MakingApts
+											Make an Appointment
 										</Link>
 									</li>
 								</>
