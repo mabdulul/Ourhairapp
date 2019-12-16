@@ -18,6 +18,8 @@ import signup from "./images/signup.png";
 import signin from "./images/signin.png";
 import stylist from "./images/style.png";
 import signout from "./images/signoff.png";
+import appointments from "./images/appt.png";
+
 const App = () => {
   const { currentUser } = useContext(AuthContext);
   return (
@@ -46,8 +48,13 @@ const App = () => {
                       Sign Out
                     </Link>
                   </li>
-                  <li>
-                    <Link class="nav-link" component={MakingApts}>
+                  <li class="nav-item" className="nav-icon">
+                    <img
+                      src={appointments}
+                      className="icons"
+                      alt="make appointment"
+                    />
+                    <Link class="nav-link" to="/MakingApts">
                       MakingApts
                     </Link>
                   </li>

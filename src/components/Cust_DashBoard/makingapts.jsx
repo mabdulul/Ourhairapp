@@ -2,6 +2,7 @@ import React from "react";
 import * as firebase from "firebase/app";
 import firedatabase from "../auth/base";
 import Calendar from "react-calendar";
+import "../../Stylesheets/makingapts.css";
 
 class MakingApts extends React.Component {
   state = {
@@ -52,7 +53,9 @@ class MakingApts extends React.Component {
           placeholder="notes"
           onChange={this.updateInput}
         />
-        <button type="submit">Submit</button>
+        <button className="makingapt-button" type="submit">
+          Submit
+        </button>
       </form>
     );
   }
