@@ -2,8 +2,10 @@ import React from "react";
 import * as firebase from "firebase/app";
 import firedatabase from "../auth/base";
 import Calendar from "react-calendar";
+import "../../Stylesheets/makingapts.css";
 
 class MakingApts extends React.Component {
+
 	state = {
 		appointment: "",
 		notes: "",
@@ -58,6 +60,8 @@ class MakingApts extends React.Component {
 			</form>
 		);
 	}
+
+
 }
 
 export default MakingApts;

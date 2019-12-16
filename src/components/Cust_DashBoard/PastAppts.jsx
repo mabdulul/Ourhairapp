@@ -43,6 +43,16 @@ class PastAnAppts extends React.Component {
 			});
 	};
 
+<<<<<<< HEAD
+class PastAppts extends Component {
+  render() {
+    return (
+      <div>
+        <h2>Past Appointments</h2>
+      </div>
+    );
+  }
+=======
 	render() {
 		const { users } = this.state;
 
@@ -64,5 +74,6 @@ class PastAnAppts extends React.Component {
 			</ul>
 		);
 	}
+>>>>>>> e8242f10e52542c995c35ee4c05f11afce94bdbf
 }
 export default PastAnAppts;
