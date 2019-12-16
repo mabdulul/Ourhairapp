@@ -5,7 +5,7 @@ import firedatabase from '../auth/base';
 
 
 const List = () => {
-
+// grabbing user reference
   useEffect(() => {
     fetchUserId();
   }, []);
@@ -14,6 +14,8 @@ const List = () => {
     let user = firedatabase.auth().currentUser;
     console.log(user.uid);
   }
+
+  //setting state hooks
   const [user, setUser] = useState("");
   const [hairType, setHairType] = useState("");
   const [length, setLength] = useState("");
@@ -29,6 +31,7 @@ const List = () => {
     const user = firedatabase.auth().currentUser;
     const db = firebase.firestore();
 
+    //defining parameters for collection from form
     const userRef = db.collection("Quiz_list").add({
       hairType,
       length,
@@ -41,11 +44,14 @@ const List = () => {
     });
   }
     
+  //start of form
     return ( 
         <div className="container">
         <div className="row mt-5">
           <div className="col-sm-12">
             <form onSubmit={SubmitData}>
+
+              {/* hair types section */}
             <p>Hair type</p>
             <div className="form-group">
               <p>Type 1: Straight</p>
@@ -184,6 +190,7 @@ const List = () => {
                 </div>
               </div>
 
+{/* hair length section */}
                 <p>Length of hair</p>
               <div className="form-check">
                 <label>
@@ -237,6 +244,8 @@ const List = () => {
                 </div>
               </div>
 
+
+{/* hair porocity section */}
             <p>Hair porosity</p>
               <div className="form-group">
                 <div className="form-check">
@@ -280,6 +289,7 @@ const List = () => {
                 </div>
               </div>
 
+{/* hair dye section which leads into a turnary */}
               <div className="form-group">
                           <p>Has your hair been colored in me last two years?</p>
                       <div className="form-check">
@@ -309,6 +319,7 @@ const List = () => {
               </div>
 {colored==="colored" ? <>
 
+{/* turnary and dye process */}
                 <div className="form-group">
                   <div className="form-check">
                   <p>If so, how was it done?</p>
@@ -335,7 +346,7 @@ const List = () => {
                   </div>
                 </div>
 
-
+{/* color date section */}
                 <div className="form-group">
                   <div className="form-calendar">
                     <p>When was your last color date?</p>
@@ -345,6 +356,7 @@ const List = () => {
                   </div>
                 </div> </>:""}
                 
+                {/* photo upload section and notes section */}
                 <div className="form-group">
                   <p>What is your ideal hair?</p>
                   <label>
@@ -366,7 +378,7 @@ const List = () => {
                   </label>
                 </div>
               
-              
+              {/* end of questionaire and submit */}
               <div className="form-group">
                 <button className="btn btn-primary mt-2" 
                 type="submit">
