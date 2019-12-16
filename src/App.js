@@ -19,7 +19,6 @@ import signin from "./images/signin.png";
 import stylist from "./images/style.png";
 import signout from "./images/signoff.png";
 
-
 import Navbar from "./components/LayOut/Navbar";
 
 const App = () => {
@@ -106,16 +105,28 @@ const App = () => {
 						<Route exact path="/profile" component={Client} />
 					)}
 
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/quiz" component={List} />
+					<Route exact path="/signup" component={SignUp} />
+					<Route
+						exact
+						path="/stylist"
+						component={Stylist_Quiz_List}
+					/>
 
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/quiz" component={List} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/stylist" component={Stylist_Quiz_List} />
-        </div>
-      </div>
+					<div className="welcome">
+						<h1>Welcome, User!</h1>
 
-      {/* <List /> */}
-    </Router>
-  );
+						<div className="results">
+							<h3>Quiz Results</h3>
+							<ul>
+								<li>results go here</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</Router>
+	);
 };
 export default App;
