@@ -9,14 +9,16 @@ import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
 import LogOut from "./components/ourAuth/LogOut";
 import Home from "./components/auth/Home";
 import List from "./components/consultation_form/cons_list";
+import MakingApts from "./components/Cust_DashBoard/makingapts";
 
 // Icons
 import home from "./images/home.png";
 import quiz from "./images/quiz.png";
-import stylist from "./images/style.png";
 import signup from "./images/signup.png";
 import signin from "./images/signin.png";
+import stylist from "./images/style.png";
 import signout from "./images/signoff.png";
+
 
 import Navbar from "./components/LayOut/Navbar";
 
@@ -104,19 +106,16 @@ const App = () => {
 						<Route exact path="/profile" component={Client} />
 					)}
 
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/quiz" component={List} />
-					<Route exact path="/signup" component={SignUp} />
-					<Route
-						exact
-						path="/stylist"
-						component={Stylist_Quiz_List}
-					/>
-				</div>
-			</div>
 
-			{/* <List /> */}
-		</Router>
-	);
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/quiz" component={List} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/stylist" component={Stylist_Quiz_List} />
+        </div>
+      </div>
+
+      {/* <List /> */}
+    </Router>
+  );
 };
 export default App;

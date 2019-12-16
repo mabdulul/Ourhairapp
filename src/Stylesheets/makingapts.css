@@ -1,0 +1,42 @@
+.makingapt-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.makingapt {
+  display: flex;
+  flex-direction: column;
+}
+
+.makingapt-input {
+  outline: 0;
+  border: 0;
+  border-bottom: 1.5px solid #dddddd;
+  width: 300px;
+  margin-bottom: 1.5rem;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.makingapt-button {
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  background: #43484ec5;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 3px;
+  margin-top: 1rem;
+}
+
+.makingapt-header {
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  font-weight: 600;
+  text-align: center;
+  width: 300px;
+  font-family: "Baskervville", serif;
+}
