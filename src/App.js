@@ -19,10 +19,12 @@ import signin from "./images/signin.png";
 import stylist from "./images/style.png";
 import signout from "./images/signoff.png";
 import past from "./images/past.png";
+import appt from "./images/appt.png";
 
 import Navbar from "./components/LayOut/Navbar";
 
 import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
+import Dashboard from "./components/Cust_DashBoard/dashboard";
 
 const App = () => {
 	const { currentUser } = useContext(AuthContext);
@@ -79,6 +81,16 @@ const App = () => {
 											Past Appointments
 										</Link>
 									</li>
+									<li class="nav-item" className="nav-icon">
+										<img
+											src={appt}
+											className="icons"
+											alt="make appointment"
+										/>
+										<Link class="nav-link" to="/MakingApts">
+											MakingApts
+										</Link>
+									</li>
 								</>
 							) : (
 								<>
@@ -124,6 +136,13 @@ const App = () => {
 					{!!currentUser && (
 						<Route
 							exact
+							path="/MakingApts"
+							component={MakingApts}
+						/>
+					)}
+					{!!currentUser && (
+						<Route
+							exact
 							path="/pastAppts"
 							component={PastAnAppts}
 						/>
@@ -136,28 +155,7 @@ const App = () => {
 						path="/stylist"
 						component={Stylist_Quiz_List}
 					/>
-
-					<div className="welcome">
-						<h1>Welcome, User!</h1>
-
-						<div className="results">
-							<h3>Quiz Results</h3>
-							<h5>
-								Take the quiz again to update your hair results
-							</h5>
-							<ul>
-								<li>Hair Type: </li>
-								<li>Hair Length: </li>
-								<li>Hair Porosity: </li>
-								<li>
-									Has your hair been colored in the last two
-									years?{" "}
-								</li>
-								<li>How was it done? </li>
-								<li>When was it colored? </li>
-							</ul>
-						</div>
-					</div>
+					{/* {!!currentUser && <Dashboard />} */}
 				</div>
 			</div>
 		</Router>
