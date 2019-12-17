@@ -38,7 +38,7 @@ const App = () => {
         <div>
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="nav-box">
-              <a className="navbar-brand" href="#">
+              <a className="navbar-brand">
                 <img src={logo} alt="logo" height="36" width="36" />
                 Ease
               </a>
@@ -76,12 +76,12 @@ const App = () => {
                   </>
                 ) : (
                   <>
-                    <li className="nav-item" className="nav-icon">
+                    <li className="nav-item">
                       <Link className="nav-link" to="/signup">
                         Sign Up
                       </Link>
                     </li>
-                    <li className="nav-item" className="nav-icon">
+                    <li className="nav-item">
                       <Link className="nav-link" to="/login">
                         Members Login
                       </Link>
@@ -118,10 +118,11 @@ const App = () => {
                       </Link>
                     </span>
                   </li>
-                  <li className="nav-icon">
-                    <img src={terms} className="icons" alt="terminology" />
+                  <li className="nav-icon" class="icon-terms">
                     <div class="dropdown">
-                      <Link class="dropbtn nav-link">Terminology</Link>
+                      <span>
+                        <Link class="dropbtn nav-link">Terminology</Link>
+                      </span>
                       <div class="dropdown-content">
                         <a href="#">Cut</a>
                         <a href="#">Style</a>
