@@ -45,9 +45,7 @@ const List = () => {
 			<div className="row mt-5">
 				<div className="col-sm-12">
 					<form onSubmit={SubmitData}>
-						<h2>
-							<b>Hair Profile</b>
-						</h2>
+						<h1>Hair Profile</h1>
 						<div className="form-group">
 							<p>Type 1: Straight</p>
 							<div className="form-check">

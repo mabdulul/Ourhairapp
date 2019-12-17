@@ -6,10 +6,12 @@ import SignUp from "./components/auth/SignUp";
 import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
-import LogOut from "./components/ourAuth/LogOut";
 import Home from "./components/auth/Home";
 import List from "./components/consultation_form/cons_list";
 import MakingApts from "./components/Cust_DashBoard/makingapts";
+import Cut from "./components/terminology/Cut";
+import Dye from "./components/terminology/Dye";
+import Style from "./components/terminology/Style";
 
 // Icons
 import home from "./images/home.png";
@@ -36,7 +38,7 @@ const App = () => {
 					<>
 						<nav className="navbar navbar-expand-lg navbar-light">
 							<div className="nav-box">
-								<a className="navbar-brand" href="#">
+								<a className="navbar-brand" href="/">
 									<img
 										src={logo}
 										alt="logo"
@@ -160,9 +162,9 @@ const App = () => {
 												Terminology
 											</Link>
 											<div class="dropdown-content">
-												<a href="#">Cut</a>
-												<a href="#">Style</a>
-												<a href="#">Dye</a>
+												<a href="/cut">Cut</a>
+												<a href="/dye">Dye</a>
+												<a href="/style">Style</a>
 											</div>
 										</div>
 									</li>
@@ -199,6 +201,15 @@ const App = () => {
 						path="/stylist"
 						component={Stylist_Quiz_List}
 					/>
+					{!!currentUser && (
+						<Route exact path="/cut" component={Cut} />
+					)}
+					{!!currentUser && (
+						<Route exact path="/dye" component={Dye} />
+					)}
+					{!!currentUser && (
+						<Route exact path="/style" component={Style} />
+					)}
 				</div>
 			</div>
 		</Router>
