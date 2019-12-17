@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import firebase from "firebase";
 import firedatabase from "../auth/base";
+import "../../Stylesheets/quiz.css";
 
 const List = ({history}) => {
 	useEffect(() => {
@@ -55,7 +56,9 @@ const List = ({history}) => {
 			<div className="row mt-5">
 				<div className="col-sm-12">
 					<form onSubmit={SubmitData}>
-						<p>Hair type</p>
+						<h2>
+							<b>Hair Profile</b>
+						</h2>
 						<div className="form-group">
 						<label>
 								<input
