@@ -93,10 +93,11 @@ const App = () => {
           </nav>
 
           {/* This is the bottom nav */}
-          <nav className="menu" tabindex="0">
-            <ul>
-              {!!currentUser ? (
-                <>
+
+          {!!currentUser ? (
+            <>
+              <nav className="menu" tabindex="0">
+                <ul>
                   <li class="icon-me">
                     <span>
                       <Link className="nav-link" to="/quiz">
@@ -130,12 +131,12 @@ const App = () => {
                       </div>
                     </div>
                   </li>
-                </>
-              ) : (
-                <></>
-              )}
-            </ul>
-          </nav>
+                </ul>
+              </nav>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="container" className="content-container">
           {!!currentUser && <Route exact path="/profile" component={Client} />}
