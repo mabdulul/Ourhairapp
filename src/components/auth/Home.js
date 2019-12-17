@@ -9,7 +9,9 @@ const Home = () => {
   //console.log("this users home", user.uid);
   return (
     <>
-      <Link onClick={() => firedatabase.auth().signOut()}>Sign Out</Link>
+      <Link className="nav-link" onClick={() => firedatabase.auth().signOut()}>
+        Sign Out
+      </Link>
     </>
   );
 };
