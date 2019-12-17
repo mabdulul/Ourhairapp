@@ -1,26 +1,26 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import firebase from "firebase";
 import firedatabase from "../auth/base";
 import "../../Stylesheets/quiz.css";
 
-const List = () => {
+const List = ({ history }) => {
 	useEffect(() => {
 		fetchUserId();
 	}, []);
 
 	const fetchUserId = () => {
 		let user = firedatabase.auth().currentUser;
-		// console.log(user.uid);
 	};
-	const [user, setUser] = useState("");
+	const [firstname, setUser] = useState("");
+	const [lastname, lastUser] = useState("");
 	const [hairType, setHairType] = useState("");
 	const [length, setLength] = useState("");
 	const [porosity, setPorosity] = useState("");
 	const [colored, setColored] = useState("");
 	const [pro, setPro] = useState("");
 	const [date, setDate] = useState("");
-	const [picture, setPicture] = useState("");
+	// const [picture, setPicture] = useState(""); We will use it later
 	const [notes, setNotes] = useState("");
 
 	const SubmitData = e => {
@@ -28,16 +28,24 @@ const List = () => {
 		const user = firedatabase.auth().currentUser;
 		const db = firebase.firestore();
 
-		const userRef = db.collection("Quiz_list").add({
-			hairType,
-			length,
-			porosity,
-			dye: colored,
-			pro,
-			date,
-			file: null,
-			notes
-		});
+		try {
+			const userRef = db.collection("Quiz_list").add({
+				userid: user.uid,
+				firstname,
+				hairType,
+				lastname,
+				length,
+				porosity,
+				dye: colored,
+				pro,
+				date,
+				file: null,
+				notes
+			});
+			history.push("/");
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -47,6 +55,26 @@ const List = () => {
 					<form onSubmit={SubmitData}>
 						<h1>Hair Profile</h1>
 						<div className="form-group">
+							<label>
+								<input
+									type="text"
+									name="firstname"
+									placeholder="What is your first name"
+									value={firstname}
+									onChange={e => setUser(e.target.value)}
+									className="form-text-input"
+								/>
+							</label>
+							<label>
+								<input
+									type="text"
+									name="lastname"
+									placeholder="What is your last name"
+									value={lastname}
+									onChange={e => lastUser(e.target.value)}
+									className="form-text-input"
+								/>
+							</label>
 							<p>Type 1: Straight</p>
 							<div className="form-check">
 								<label>
@@ -220,7 +248,7 @@ const List = () => {
 								</label>
 							</div>
 						</div>
-
+						{/* The Lenght of Your Hair */}
 						<p>Length of hair</p>
 						<div className="form-check">
 							<label>
@@ -408,14 +436,14 @@ const List = () => {
 							""
 						)}
 						<div className="form-group">
-							<p>What is your ideal hair?</p>
+							{/* <p>What is your ideal hair?</p>
 							<label>
 								<input
 									type="file"
 									name="hair pics"
 									onChange={e => setPicture(e.target.value)}
 								/>
-							</label>
+							</label> */}
 							<label>
 								<input
 									type="text"
