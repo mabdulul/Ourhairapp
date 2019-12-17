@@ -190,6 +190,15 @@ const App = () => {
 						path="/stylist"
 						component={Stylist_Quiz_List}
 					/>
+					{!!currentUser && (
+						<Route exact path="/cut" component={Cut} />
+					)}
+					{!!currentUser && (
+						<Route exact path="/dye" component={Dye} />
+					)}
+					{!!currentUser && (
+						<Route exact path="/style" component={Style} />
+					)}
 				</div>
 			</div>
 		</Router>
