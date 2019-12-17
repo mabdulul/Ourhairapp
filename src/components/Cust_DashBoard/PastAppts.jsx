@@ -13,7 +13,7 @@ class PastAnAppts extends React.Component {
   };
   fetchCurrentUser = async () => {
     var user = firedatabase.auth().currentUser;
-    var uid, data;
+    var uid;
     if (user != null) {
       //   name = user.displayName;
       //   email = user.email;
@@ -25,9 +25,7 @@ class PastAnAppts extends React.Component {
       uid: user.uid
     });
     // Getting the current data to view the past appts
-    // let start = new Date("2019-12-13");
     const today = new Date();
-
     firebase
       .firestore()
       .collection("appointments")

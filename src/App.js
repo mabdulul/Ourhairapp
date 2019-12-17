@@ -6,25 +6,26 @@ import SignUp from "./components/auth/SignUp";
 import Client from "./components/Cust_DashBoard/client";
 import { AuthContext } from "./components/auth/Auth";
 import Stylist_Quiz_List from "./components/Stylist_DashBoard/notification";
-import LogOut from "./components/ourAuth/LogOut";
+//import LogOut from "./components/ourAuth/LogOut";
 import Home from "./components/auth/Home";
 import List from "./components/consultation_form/cons_list";
 import MakingApts from "./components/Cust_DashBoard/makingapts";
+import HairProfile from "./components/Cust_DashBoard/hairprofile";
 
 // Icons
-import home from "./images/home.png";
+//import home from "./images/home.png";
 import quiz from "./images/quiz.png";
-import signup from "./images/signup.png";
-import signin from "./images/signin.png";
-import stylist from "./images/style.png";
-import signout from "./images/signoff.png";
+//import signup from "./images/signup.png";
+//import signin from "./images/signin.png";
+//import stylist from "./images/style.png";
+//import signout from "./images/signoff.png";
 import past from "./images/past.png";
 import appt from "./images/appt.png";
 import logo from "./images/logo.svg";
 import navlogo from "./images/topnav2.svg";
 
 import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
-import Dashboard from "./components/Cust_DashBoard/dashboard";
+//import Dashboard from "./components/Cust_DashBoard/dashboard";
 
 const App = () => {
   const { currentUser } = useContext(AuthContext);
@@ -35,10 +36,10 @@ const App = () => {
           <>
             <nav className="navbar navbar-expand-lg navbar-light">
               <div className="nav-box">
-                <a className="navbar-brand" href="#">
+                <Link className="navbar-brand" to="/">
                   <img src={logo} alt="logo" height="36" width="36" />
                   Ease
-                </a>
+                </Link>
               </div>
               <button
                 className="navbar-toggler topnav-menu"
@@ -61,9 +62,9 @@ const App = () => {
                   {!!currentUser ? (
                     <>
                       <li className="nav-item active">
-                        <a className="nav-link" href="#">
-                          Home <span class="sr-only">(current)</span>
-                        </a>
+                        <Link className="nav-link" to="/">
+                          Home <span className="sr-only">(current)</span>
+                        </Link>
                       </li>
                       <li className="nav-item nav-up">
                         <Link className="nav-link" component={Home}>
@@ -90,7 +91,7 @@ const App = () => {
             </nav>
           </>
           <nav className="nav-bar">
-            <ul class="nav flex-column">
+            <ul className="nav flex-column">
               {!!currentUser ? (
                 <>
                   <li className="nav-icon">
@@ -126,8 +127,12 @@ const App = () => {
           {!!currentUser && (
             <Route exact path="/pastAppts" component={PastAnAppts} />
           )}
+          {!!currentUser && <Route exact path="/quiz" component={List} />}
+          {!!currentUser && (
+            <Route exact path="/hairprofile" component={HairProfile} />
+          )}
+
           <Route exact path="/login" component={Login} />
-          <Route exact path="/quiz" component={List} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/stylist" component={Stylist_Quiz_List} />
         </div>

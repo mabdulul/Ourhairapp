@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { withRouter, Redirect } from "react-router";
+import { withRouter } from "react-router";
 import firedatabase from "./base";
 import "../../Stylesheets/SignUp.css";
 
