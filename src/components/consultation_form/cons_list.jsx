@@ -4,14 +4,13 @@ import firebase from "firebase";
 import firedatabase from "../auth/base";
 import "../../Stylesheets/quiz.css";
 
-const List = ({history}) => {
+const List = ({ history }) => {
 	useEffect(() => {
 		fetchUserId();
 	}, []);
 
 	const fetchUserId = () => {
 		let user = firedatabase.auth().currentUser;
-	
 	};
 	const [firstname, setUser] = useState("");
 	const [lastname, lastUser] = useState("");
@@ -28,27 +27,25 @@ const List = ({history}) => {
 		e.preventDefault();
 		const user = firedatabase.auth().currentUser;
 		const db = firebase.firestore();
-	   
-		try{
-		const userRef = db.collection("Quiz_list").add({
-			userid: user.uid,
-			firstname,
-			hairType,
-			lastname,
-			length,
-			porosity,
-			dye: colored,
-			pro,
-			date,
-			file: null,
-			notes
-			
-		})
-		history.push("/");
-	}catch(error){
-		console.log(error)
-	}
 
+		try {
+			const userRef = db.collection("Quiz_list").add({
+				userid: user.uid,
+				firstname,
+				hairType,
+				lastname,
+				length,
+				porosity,
+				dye: colored,
+				pro,
+				date,
+				file: null,
+				notes
+			});
+			history.push("/");
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -56,11 +53,9 @@ const List = ({history}) => {
 			<div className="row mt-5">
 				<div className="col-sm-12">
 					<form onSubmit={SubmitData}>
-						<h2>
-							<b>Hair Profile</b>
-						</h2>
+						<h1>Hair Profile</h1>
 						<div className="form-group">
-						<label>
+							<label>
 								<input
 									type="text"
 									name="firstname"
@@ -253,7 +248,7 @@ const List = ({history}) => {
 								</label>
 							</div>
 						</div>
-{/* The Lenght of Your Hair */}
+						{/* The Lenght of Your Hair */}
 						<p>Length of hair</p>
 						<div className="form-check">
 							<label>
