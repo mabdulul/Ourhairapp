@@ -3,7 +3,7 @@ import Calendar from "react-calendar";
 import firebase from "firebase";
 import firedatabase from "../auth/base";
 
-const List = () => {
+const List = ({history}) => {
 	useEffect(() => {
 		fetchUserId();
 	}, []);
@@ -41,8 +41,9 @@ const List = () => {
 			date,
 			file: null,
 			notes
+			
 		})
-	console.log(userRef)
+		history.push("/");
 	}catch(error){
 		console.log(error)
 	}
