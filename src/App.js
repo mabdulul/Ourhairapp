@@ -151,9 +151,9 @@ const App = () => {
 												</Link>
 											</span>
 											<div class="dropdown-content">
-												<a href="#">Cut</a>
-												<a href="#">Style</a>
-												<a href="#">Dye</a>
+												<a href="/cut">Cut</a>
+												<a href="/dye">Dye</a>
+												<a href="/style">Style</a>
 											</div>
 										</div>
 									</li>
