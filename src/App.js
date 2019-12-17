@@ -20,6 +20,7 @@ import stylist from "./images/style.png";
 import signout from "./images/signoff.png";
 import past from "./images/past.png";
 import appt from "./images/appt.png";
+import terms from "./images/terms.png";
 import logo from "./images/logo.svg";
 import navlogo from "./images/topnav2.svg";
 
@@ -147,6 +148,23 @@ const App = () => {
 										<Link class="nav-link" to="/MakingApts">
 											Make an Appointment
 										</Link>
+									</li>
+									<li className="nav-icon">
+										<img
+											src={terms}
+											className="icons"
+											alt="terminology"
+										/>
+										<div class="dropdown">
+											<Link class="dropbtn nav-link">
+												Terminology
+											</Link>
+											<div class="dropdown-content">
+												<a href="#">Cut</a>
+												<a href="#">Style</a>
+												<a href="#">Dye</a>
+											</div>
+										</div>
 									</li>
 								</>
 							) : (
