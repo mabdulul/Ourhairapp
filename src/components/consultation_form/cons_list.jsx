@@ -3,6 +3,7 @@ import React, {Component, useState, useEffect} from 'react';
 import Calendar from 'react-calendar';
 import firebase from 'firebase';
 import firedatabase from '../auth/base';
+import ProfilePage from "../example"
 
 
 const List = () => {
@@ -40,7 +41,7 @@ const List = () => {
       dye: colored,
       pro,
       date,
-      file: null,
+      file: "",
       notes
     });
   }
@@ -361,11 +362,7 @@ const List = () => {
                 <div className="form-group">
                   <p>What is your ideal hair?</p>
                   <label>
-                    <input
-                    type="file"
-                    name="hair pics"
-                    onChange={e => setPicture(e.target.value)}
-                    />
+                  <ProfilePage />
                   </label>
                   <label>
                     <input
