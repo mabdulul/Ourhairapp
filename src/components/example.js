@@ -21,15 +21,7 @@ class ProfilePage extends Component {
 		this.setState({ isUploading: false });
 		console.error(error);
 	};
-	handleUploadSuccess = filename => {
-		this.setState({ avatar: filename, progress: 100, isUploading: false });
-		firebase
-			.storage()
-			.ref("Quiz_Images")
-			.child(filename)
-			.getDownloadURL()
-			.then(url => this.setState({ avatarURL: url }));
-	};
+	
 
 	render() {
 		return (
@@ -51,7 +43,7 @@ class ProfilePage extends Component {
 							storageRef={firebase.storage().ref("Quiz_Images")}
 							onUploadStart={this.handleUploadStart}
 							onUploadError={this.handleUploadError}
-							onUploadSuccess={this.handleUploadSuccess}
+							onUploadSuccess={this.props.handleUploadSuccess}
 							onProgress={this.handleProgress}
 						/>
 					</label>
