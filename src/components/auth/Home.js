@@ -10,7 +10,7 @@ const Home = () => {
 	return (
 		<>
 			<Link
-				to="/"
+				to="/login"
 				className="nav-link"
 				onClick={() => firedatabase.auth().signOut()}>
 				Sign Out
