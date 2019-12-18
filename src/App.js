@@ -154,6 +154,7 @@ const App = () => {
 					)}
 				</div>
 				<div className="container" className="content-container">
+					{!!currentUser && <Dashboard />}
 					{!!currentUser && (
 						<Route exact path="/profile" component={Client} />
 					)}
