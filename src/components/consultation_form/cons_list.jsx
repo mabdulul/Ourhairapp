@@ -49,33 +49,41 @@ const List = ({ history }) => {
 	};
 
 	return (
-		<div className="container">
+		<div className="container Quizform">
 			<div className="row mt-5">
 				<div className="col-sm-12">
+					<h1>Build your hair profile</h1>
 					<form onSubmit={SubmitData}>
-						<h1>Hair Profile</h1>
+						<h2>
+							Hair Type
+						</h2>
 						<div className="form-group">
-							<label>
+						<div className="Quizform-name">
+						<label>
+							First Name:
 								<input
 									type="text"
 									name="firstname"
-									placeholder="What is your first name"
+									placeholder="Jane"
 									value={firstname}
 									onChange={e => setUser(e.target.value)}
 									className="form-text-input"
 								/>
 							</label>
 							<label>
+								Last Name:
 								<input
 									type="text"
 									name="lastname"
-									placeholder="What is your last name"
+									placeholder="Doe"
 									value={lastname}
 									onChange={e => lastUser(e.target.value)}
 									className="form-text-input"
 								/>
 							</label>
-							<p>Type 1: Straight</p>
+						</div>
+					
+							<h6>Straight</h6>
 							<div className="form-check">
 								<label>
 									<input
@@ -88,9 +96,8 @@ const List = ({ history }) => {
 										checked={hairType === "1a"}
 										className="form-check-input"
 									/>
-									1a Straight (Fine/Thin) Hair tends to be
-									very soft, thin, shiny, oily, poor at
-									holding curls, difficult to damage.
+									1A Straight (Fine/Thin) Hair tends to be
+									very soft, thin, shiny, and oily.
 								</label>
 							</div>
 							<div className="form-check">
@@ -105,7 +112,7 @@ const List = ({ history }) => {
 										checked={hairType === "1b"}
 										className="form-check-input"
 									/>
-									1b Straight (Medium) Hair characterized by
+									1B Straight (Medium) Hair characterized by
 									volume and body.
 								</label>
 							</div>
@@ -121,11 +128,11 @@ const List = ({ history }) => {
 										checked={hairType === "1c"}
 										className="form-check-input"
 									/>
-									1c Straight (Coarse) Hair tends to be
-									bone-straight, coarse, difficult to curl.
+									1C Straight (Coarse) Hair tends to be
+									bone-straight and coarse.
 								</label>
 							</div>
-							<p>Type 2: Wavy</p>
+							<h6>Wavy</h6>
 							<div className="form-check">
 								<label>
 									<input
@@ -138,10 +145,8 @@ const List = ({ history }) => {
 										checked={hairType === "2a"}
 										className="form-check-input"
 									/>
-									2a Wavy (Fine/Thin) Hair has definite "S"
-									pattern, can easily be straightened or
-									curled, usually receptive to a variety of
-									styles.
+									2A Wavy (Fine/Thin) Hair has definite "S"
+									pattern, can easily be shaped.
 								</label>
 							</div>
 							<div className="form-check">
@@ -156,8 +161,7 @@ const List = ({ history }) => {
 										checked={hairType === "2b"}
 										className="form-check-input"
 									/>
-									2b Wavy (Medium) Can tend to be frizzy and a
-									little resistant to styling.
+									2B Wavy (Coarse) Can tend to be frizzy and a little resistant to styling.
 								</label>
 							</div>
 							<div className="form-check">
@@ -172,12 +176,10 @@ const List = ({ history }) => {
 										checked={hairType === "2c"}
 										className="form-check-input"
 									/>
-									2c Wavy (Coarse) Fairly coarse, frizzy or
-									very frizzy with thicker waves, often more
-									resistant to styling.
+									2C Wavy (Coarse) Fairly coarse, frizzy with thicker waves and resistant to styling.
 								</label>
 							</div>
-							<p>Type 3: Curly</p>
+							<h6>Curly</h6>
 							<div className="form-check">
 								<label>
 									<input
@@ -190,9 +192,8 @@ const List = ({ history }) => {
 										checked={hairType === "3a"}
 										className="form-check-input"
 									/>
-									3a Curly (Loose) Presents a definite "S"
-									pattern, tends to combine thickness, volume,
-									and/or frizziness.
+									3A Curly (Loose) Presents a definite "S"
+									pattern, tends to have volume,.
 								</label>
 							</div>
 							<div className="form-check">
@@ -207,12 +208,10 @@ const List = ({ history }) => {
 										checked={hairType === "3b"}
 										className="form-check-input"
 									/>
-									3b Curly (Tight) Presents a definite "S"
-									pattern, curls ranging from spirals to
-									spiral-shaped corkscrew
+									3B Curly (Tight) Presents a definite "S" pattern, curls ranging from spirals to corkscrew
 								</label>
 							</div>
-							<p>Type 4: Kinky</p>
+							<h6>Kinky</h6>
 							<div className="form-check">
 								<label>
 									<input
@@ -225,9 +224,7 @@ const List = ({ history }) => {
 										checked={hairType === "4a"}
 										className="form-check-input"
 									/>
-									4a Kinky (Soft) Hair tends to be very wiry
-									and fragile, tightly coiled and can feature
-									curly patterning.
+									4A Kinky (Soft) Hair tends to be very wiry and fragile, tightly coiled has a curly.
 								</label>
 							</div>
 							<div className="form-check">
@@ -242,33 +239,18 @@ const List = ({ history }) => {
 										checked={hairType === "4b"}
 										className="form-check-input"
 									/>
-									4b Kinky (Wiry) As 4a but with less defined
-									pattern of curls, looks more like a "Z" with
-									sharp angles
+									4B Kinky (Wiry) As 4a but with less defined pattern of curls, looks more like a "Z".
 								</label>
 							</div>
 						</div>
-						{/* The Lenght of Your Hair */}
-						<p>Length of hair</p>
+                   {/* The Lenght of Your Hair */}
+						<h6>Length of hair</h6>
 						<div className="form-check">
 							<label>
 								<input
 									type="radio"
 									name="hairL"
-									value={"option1"}
-									onChange={e => setLength(e.target.value)}
-									checked={length === "option1"}
-									className="form-check-input"
-								/>
-								Pixie
-							</label>
-						</div>
-						<div className="form-check">
-							<label>
-								<input
-									type="radio"
-									name="hairL"
-									value={"option2"}
+									value={"Short"}
 									onChange={e => setLength(e.target.value)}
 									checked={length === "option2"}
 									className="form-check-input"
@@ -281,7 +263,7 @@ const List = ({ history }) => {
 								<input
 									type="radio"
 									name="hairL"
-									value={"option3"}
+									value={"Medium"}
 									onChange={e => setLength(e.target.value)}
 									checked={length === "option3"}
 									className="form-check-input"
@@ -303,7 +285,7 @@ const List = ({ history }) => {
 							</label>
 						</div>
 
-						<p>Hair porosity</p>
+						<h6>Hair porosity</h6>
 						<div className="form-group">
 							<div className="form-check">
 								<label>
@@ -352,10 +334,10 @@ const List = ({ history }) => {
 							</div>
 						</div>
 						<div className="form-group">
-							<p>
+							<h6>
 								Has your hair been colored in the last two
 								years?
-							</p>
+							</h6>
 							<div className="form-check">
 								<label>
 									<input
@@ -391,7 +373,7 @@ const List = ({ history }) => {
 							<>
 								<div className="form-group">
 									<div className="form-check">
-										<p>How was it done?</p>
+										<h6>How was it done?</h6>
 										<label>
 											<input
 												type="radio"
