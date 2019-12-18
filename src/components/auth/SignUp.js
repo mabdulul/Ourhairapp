@@ -29,6 +29,9 @@ const SignUp = ({ history }) => {
           <div className="form signup-box">
             <form className="form-login Login" onSubmit={handleSignUp}>
               <label htmlFor="Email">
+              <p className="signup-header ">
+                  Signup with us it's easy as washing your hair.
+                </p>
                 <input
                   className="signup-input"
                   name="email"
@@ -42,14 +45,6 @@ const SignUp = ({ history }) => {
                   name="password"
                   type="password"
                   placeholder="Password"
-                />
-              </label>
-              <label>
-                <input
-                  className="signup-input"
-                  name="name"
-                  type="text"
-                  placeholder="First Name"
                 />
               </label>
               <button className="signup-button" type="submit">

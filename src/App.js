@@ -31,84 +31,67 @@ import navlogo from "./images/topnav2.svg";
 //import home from "./images/home.png";
 
 const App = () => {
-	const { currentUser } = useContext(AuthContext);
-	return (
-		<Router>
-			{/* This is the top nav */}
-			<div className="app">
-				<div>
-					<nav className="navbar navbar-expand-lg navbar-light">
-						<div className="nav-box">
-							<a className="navbar-brand">
-								<img
-									src={logo}
-									alt="logo"
-									height="36"
-									width="36"
-								/>
-								Ease
-							</a>
-						</div>
-						<button
-							className="navbar-toggler topnav-menu"
-							type="button"
-							data-toggle="collapse"
-							data-target="#navbarNav"
-							aria-controls="navbarNav"
-							aria-expanded="false"
-							aria-label="Toggle navigation">
-							<span className="topnav-menu">
-								<img
-									src={navlogo}
-									alt="menu"
-									height="22"
-									width="22"
-								/>
-							</span>
-						</button>
-						<div
-							className="collapse navbar-collapse navbar-right"
-							id="navbarNav">
-							<ul className="navbar-nav">
-								{!!currentUser ? (
-									<>
-										<li className="nav-item active">
-											<a className="nav-link" href="/">
-												Home{" "}
-												<span class="sr-only">
-													(current)
-												</span>
-											</a>
-										</li>
-										<li className="nav-item nav-up">
-											<Link
-												className="nav-link"
-												component={Home}>
-												Sign Out
-											</Link>
-										</li>
-									</>
-								) : (
-									<>
-										<li className="nav-item">
-											<Link
-												className="nav-link"
-												to="/signup">
-												Sign Up
-											</Link>
-										</li>
-										<li className="nav-item">
-											<Link
-												className="nav-link"
-												to="/login">
-												Members Login
-											</Link>
-										</li>
-									</>
-								)}
-							</ul>
-						</div>
-					</nav>
+  const { currentUser } = useContext(AuthContext);
+  return (
+    <Router>
+      {/* This is the top nav */}
+      <div className="app">
+        <div>
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <div className="nav-box">
+              <a className="navbar-brand">
+                <img src={logo} alt="logo" height="36" width="36" />
+                Ease
+              </a>
+            </div>
+            <button
+              className="navbar-toggler topnav-menu"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="topnav-menu">
+                <img src={navlogo} alt="menu" height="22" width="22" />
+              </span>
+            </button>
+            <div
+              className="collapse navbar-collapse navbar-right"
+              id="navbarNav"
+            >
+              <ul className="navbar-nav">
+                {!!currentUser ? (
+                  <>
+                    <li className="nav-item active">
+                      <a className="nav-link" href="/">
+                        Home <span class="sr-only">(current)</span>
+                      </a>
+                    </li>
+                    <li className="nav-item nav-up">
+                      <Link className="nav-link" component={Home}>
+                        Sign Out
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/signup">
+                        Sign Up
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/login">
+                        Members Login
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
+          </nav>
 
 					{/* This is the side nav */}
 					<nav className="menu" tabindex="0">
@@ -202,5 +185,6 @@ const App = () => {
 			</div>
 		</Router>
 	);
+
 };
 export default App;

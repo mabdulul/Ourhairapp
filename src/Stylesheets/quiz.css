@@ -1,0 +1,29 @@
+.Quizform h1 {
+    text-align: center;
+}
+
+.Quizform h2 {
+    text-align: center;
+
+}
+
+.Quizform-name {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.Quizform h6 {
+    font-size: 20px;
+    text-transform: uppercase;
+
+}
+
+
+
+
+.Quizform label {
+
+    font-size: 18px;
+
+}
