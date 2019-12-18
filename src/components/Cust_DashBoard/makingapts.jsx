@@ -2,6 +2,7 @@ import React from "react";
 import * as firebase from "firebase/app";
 import firedatabase from "../auth/base";
 import Calendar from "react-calendar";
+import "../../Stylesheets/global.css";
 
 import "../../Stylesheets/makingapts.css";
 
@@ -44,28 +45,30 @@ class MakingApts extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <form onSubmit={this.addUser}>
-        {/* <input
+      <section className="dashSections">
+        <form onSubmit={this.addUser}>
+          {/* <input
           type="text"
           name="appointments"
           placeholder="MM-DD-YYYY"
           onChange={this.updateInput}
         /> */}
-        <Calendar
-          name="appointments"
-          onChange={this.onChange}
-          value={this.state.date}
-        />
-        <input
-          type="text"
-          name="notes"
-          placeholder="notes"
-          onChange={this.updateInput}
-        />
-        <button className="makingapt-button" type="submit">
-          Submit
-        </button>
-      </form>
+          <Calendar
+            name="appointments"
+            onChange={this.onChange}
+            value={this.state.date}
+          />
+          <input
+            type="text"
+            name="notes"
+            placeholder="notes"
+            onChange={this.updateInput}
+          />
+          <button className="makingapt-button" type="submit">
+            Submit
+          </button>
+        </form>
+      </section>
     );
   }
 }

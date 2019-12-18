@@ -2,6 +2,7 @@ import React from "react";
 import firebase from "../auth/base";
 import firedatabase from "../auth/base";
 import Moment from "react-moment";
+import "../../Stylesheets/global.css";
 class PastAnAppts extends React.Component {
   state = {
     uid: "",
@@ -45,32 +46,34 @@ class PastAnAppts extends React.Component {
     const { users } = this.state;
 
     return (
-      <section>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Type</th>
-              <th scope="col">Stylist</th>
-            </tr>
-          </thead>
-          <tbody class="pastAppts-data">
-            {users.map(user => (
-              <tr key={user.id}>
-                {/* <div>{user.Cust_Notes}</div> */}
-                <td>
-                  <Moment unix format="YYYY/MM/DD">
-                    {user.Date_of_Appt.seconds}
-                  </Moment>
-                </td>
-                <td>{user.Type}</td>
-                <td>{user.Stylist}</td>
-
-                {/* <div>{user.Stylist_notes}</div> */}
+      <section className="dashSections">
+        <div class="row">
+          <table class="table col-sm-12 col-md-11 col-lg-11">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Type</th>
+                <th scope="col">Stylist</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody class="pastAppts-data">
+              {users.map(user => (
+                <tr key={user.id}>
+                  {/* <div>{user.Cust_Notes}</div> */}
+                  <td>
+                    <Moment unix format="YYYY/MM/DD">
+                      {user.Date_of_Appt.seconds}
+                    </Moment>
+                  </td>
+                  <td>{user.Type}</td>
+                  <td>{user.Stylist}</td>
+
+                  {/* <div>{user.Stylist_notes}</div> */}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
     );
   }
