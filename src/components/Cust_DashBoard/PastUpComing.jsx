@@ -2,12 +2,12 @@ import React from "react";
 import firebase from "../auth/base";
 import firedatabase from "../auth/base";
 import Moment from "react-moment";
-// import Modal from "../../Cust_DashBoard/modal";
+import PastAnAppts from "./PastAppts";
 
-class PastAnAppts extends React.Component {
+class PastUpComing extends React.Component {
   state = {
     uid: "",
-    users: [],
+    usersA: [],
     docId: []
   };
   componentDidMount = () => {
@@ -32,11 +32,11 @@ class PastAnAppts extends React.Component {
       .firestore()
       .collection("appointments")
       .where("UserId", "==", user.uid)
-      .where("Date_of_Appt", "<=", today)
+      .where("Date_of_Appt", ">=", today)
       .get()
       .then(querySnapshot => {
         const data = querySnapshot.docs.map(doc => doc.data());
-        this.setState({ users: data });
+        this.setState({ usersA: data });
       })
       .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -44,11 +44,11 @@ class PastAnAppts extends React.Component {
   };
 
   render() {
-    const { users } = this.state;
+    const { usersA } = this.state;
     return (
       <>
-        <section className="dashSections">
-          <h1>Past Appointment</h1>
+        <section class="dashSections">
+          <h1>UpComing Appointments</h1>
           <table class="table">
             <thead>
               <tr>
@@ -63,15 +63,15 @@ class PastAnAppts extends React.Component {
               data-toggle="modal"
               data-target="#exampleModalScrollable"
             >
-              {users.map(user => (
-                <tr key={user.id} onclick="moreInfo">
+              {usersA.map(userA => (
+                <tr key={userA.id} onclick="moreInfo">
                   <td>
                     <Moment unix format="YYYY/MM/DD">
-                      {user.Date_of_Appt.seconds}
+                      {userA.Date_of_Appt.seconds}
                     </Moment>
                   </td>
-                  <td>{user.Type}</td>
-                  <td>{user.Stylist}</td>
+                  <td>{userA.Type}</td>
+                  <td>{userA.Stylist}</td>
                 </tr>
               ))}
             </tbody>
@@ -107,14 +107,14 @@ class PastAnAppts extends React.Component {
                     "overflow-y": "auto"
                   }}
                 >
-                  {users.map(user => (
+                  {usersA.map(userA => (
                     <div
                       className="moreInfo"
                       data-toggle="modal"
                       data-target="#exampleModal"
                     >
-                      <p>{user.Stylist_notes}</p>
-                      <p>{user.Cust_Notes}</p>
+                      <p>{userA.Stylist_notes}</p>
+                      <p>{userA.Cust_Notes}</p>
                     </div>
                   ))}
                 </div>
@@ -134,8 +134,10 @@ class PastAnAppts extends React.Component {
             </div>
           </div>
         </section>
+        <PastAnAppts />
       </>
     );
   }
 }
-export default PastAnAppts;
+
+export default PastUpComing;
