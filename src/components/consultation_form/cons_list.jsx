@@ -5,9 +5,9 @@ import firebase from 'firebase';
 import firedatabase from '../auth/base';
 import ProfilePage from "../example";
 import DbButton from './dbButton';
+import "../../Stylesheets/quiz.css";
 
-
-const List = () => {
+const List = ( {history }) => {
 // grabbing user reference
   useEffect(() => {
     fetchUserId();
@@ -17,9 +17,11 @@ const List = () => {
     let user = await firedatabase.auth().currentUser;
     console.log(user.uid);
   }
+  
 
   //setting state hooks
-  const [user, setUser] = useState("");
+  const [firstname, setUser] = useState("");
+	const [lastname, lastUser] = useState("");
   const [hairType, setHairType] = useState("");
   const [length, setLength] = useState("");
   const [porosity, setPorosity] = useState("");
@@ -45,17 +47,24 @@ const List = () => {
     const db = firebase.firestore();
 
     //defining parameters for collection from form
-    const userRef = db.collection("Quiz_list").add({
-      user,
-      hairType,
-      length,
-      porosity,
-      dye: colored,
-      pro,
-      date,
-      notes,
-    });
-  }
+    try {
+			const userRef = db.collection("Quiz_list").add({
+				userid: user.uid,
+				firstname,
+				hairType,
+				lastname,
+				length,
+				porosity,
+				dye: colored,
+				pro,
+				date,
+				notes
+			});
+			history.push("/pastAppts");
+		} catch (error) {
+			console.log(error);
+		}
+	};
     
   //start of form
     return ( 
@@ -203,104 +212,48 @@ const List = () => {
                 </div>
               </div>
 
-{/* hair length section */}
-                <p>Length of hair</p>
-              <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="hairL"
-                    value={'pixie'}
-                    onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'pixie'}
-                    className="form-check-input"
-                  />
-                  Pixie
-                </label>
-              </div>
-              <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="hairL"
-                    value={'short'}
-                    onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'short'}
-                    className="form-check-input"
-                  />
-                  Short
-                </label>
-              </div>
-              <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="hairL"
-                    value={'medium'}
-                    onChange ={e =>  setLength(e.target.value)}
-                    checked = {length === 'medium'}
-                    className="form-check-input"
-                  />
-                  Medium
-                </label>
-                <div className="form-check">
-                    <label>
-                        <input type="radio"
-                        name="hairL"
-                        value={'long'}
-                        onChange ={e => setLength(e.target.value)}
-                        checked = {length === 'long'}
-                        className="form-check-input"
-                        />
-                        Long
-                    </label>
-                </div>
-              </div>
 
-
-{/* hair porocity section */}
-            <p>Hair porosity</p>
-              <div className="form-group">
-                <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="porosity"
-                    value={'low'}
-                    onChange ={e =>  setPorosity(e.target.value)}
-                    checked = {porosity === 'low'}
-                    className="form-check-input"
-                  />
-                  low
-                  </label>
-                </div>
-                <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="porosity"
-                    value={'medium'}
-                    onChange ={e =>  setPorosity(e.target.value)}
-                    checked = {porosity === 'medium'}
-                    className="form-check-input"
-                  />
-                  medium
-                  </label>
-                </div>
-                <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="porosity"
-                    value={'high'}
-                    onChange ={e =>  setPorosity(e.target.value)}
-                    checked = {porosity === 'high'}
-                    className="form-check-input"
-                  />
-                  high
-                  </label>
-                </div>
-              </div>
+                   {/* The Lenght of Your Hair */}
+						<h6>Length of hair</h6>
+						<div className="form-check">
+							<label>
+								<input
+									type="radio"
+									name="hairL"
+									value={"Short"}
+									onChange={e => setLength(e.target.value)}
+									checked={length === "option2"}
+									className="form-check-input"
+								/>
+								Short
+							</label>
+						</div>
+						<div className="form-check">
+							<label>
+								<input
+									type="radio"
+									name="hairL"
+									value={"Medium"}
+									onChange={e => setLength(e.target.value)}
+									checked={length === "option3"}
+									className="form-check-input"
+								/>
+								Medium
+							</label>
+						</div>
+						<div className="form-check">
+							<label>
+								<input
+									type="radio"
+									name="hairL"
+									value={"long"}
+									onChange={e => setLength(e.target.value)}
+									checked={length === "long"}
+									className="form-check-input"
+								/>
+								Long
+							</label>
+						</div>
 
 {/* hair dye section which leads into a turnary */}
               <div className="form-group">
