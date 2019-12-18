@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import firebase from "firebase";
@@ -23,10 +24,146 @@ const List = ({ history }) => {
 	// const [picture, setPicture] = useState(""); We will use it later
 	const [notes, setNotes] = useState("");
 
-	const SubmitData = e => {
-		e.preventDefault();
-		const user = firedatabase.auth().currentUser;
-		const db = firebase.firestore();
+
+              {/* hair types section */}
+            <p>Hair type</p>
+            <div className="form-group">
+              <p>Type 1: Straight</p>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'1a'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '1a'}
+                    className="form-check-input"
+                  />
+                  1a	Straight (Fine/Thin) 	Hair tends to be very soft, thin, shiny, oily, poor at holding curls, difficult to damage.
+                </label>
+                </div>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'1b'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '1b'}
+                    className="form-check-input"
+                  />
+                  1b	Straight (Medium)	Hair characterized by volume and body.
+                </label>
+                </div>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'1c'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '1c'}
+                    className="form-check-input"
+                  />
+                  1c	Straight (Coarse)	Hair tends to be bone-straight, coarse, difficult to curl.
+                </label>
+                </div>
+                <p>Type 2: Wavy</p>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'2a'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '2a'}
+                    className="form-check-input"
+                  />
+                  2a	Wavy (Fine/Thin)	Hair has definite "S" pattern, can easily be straightened or curled, usually receptive to a variety of styles.
+                </label>
+                </div>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'2b'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '2b'}
+                    className="form-check-input"
+                  />
+                  2b	Wavy (Medium)	Can tend to be frizzy and a little resistant to styling.
+                </label>
+                </div>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'2c'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '2c'}
+                    className="form-check-input"
+                  />
+                  2c	Wavy (Coarse)	Fairly coarse, frizzy or very frizzy with thicker waves, often more resistant to styling.
+                </label>
+                </div>
+                <p>Type 3: Curly</p>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'3a'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '3a'}
+                    className="form-check-input"
+                  />
+                  3a	Curly (Loose)	Presents a definite "S" pattern, tends to combine thickness, volume, and/or frizziness.
+                </label>
+                </div>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'3b'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '3b'}
+                    className="form-check-input"
+                  />
+                  3b	Curly (Tight)	Presents a definite "S" pattern, curls ranging from spirals to spiral-shaped corkscrew
+                </label>
+                </div>
+                <p>Type 4: Kinky</p>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'4a'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '4a'}
+                    className="form-check-input"
+                  />
+                  4a	Kinky (Soft)	Hair tends to be very wiry and fragile, tightly coiled and can feature curly patterning.
+                </label>
+                </div>
+                <div className="form-check">
+                <label>
+                  <input
+                    type="radio"
+                    name="type"
+                    value={'4b'}
+                    onChange ={e =>  setHairType(e.target.value)}
+                    checked = {hairType === '4b'}
+                    className="form-check-input"
+                  />
+                  4b	Kinky (Wiry)	As 4a but with less defined pattern of curls, looks more like a "Z" with sharp angles
+                </label>
+                </div>
+              </div>
+
 
 		try {
 			const userRef = db.collection("Quiz_list").add({
@@ -42,7 +179,7 @@ const List = ({ history }) => {
 				file: null,
 				notes
 			});
-			history.push("/");
+			history.push("/pastAppts");
 		} catch (error) {
 			console.log(error);
 		}
@@ -450,4 +587,6 @@ const List = ({ history }) => {
 		</div>
 	);
 };
+
 export default List;
+

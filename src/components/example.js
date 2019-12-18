@@ -5,17 +5,16 @@ import "firebase/auth";
 import "firebase/storage";
 import FileUploader from "react-firebase-file-uploader";
 
+
+
 class ProfilePage extends Component {
 	state = {
-		username: "",
 		avatar: "",
 		isUploading: false,
 		progress: 0,
 		avatarURL: ""
 	};
 
-	handleChangeUsername = event =>
-		this.setState({ username: event.target.value });
 	handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
 	handleProgress = progress => this.setState({ progress });
 	handleUploadError = error => {
@@ -38,20 +37,9 @@ class ProfilePage extends Component {
 				<form>
 					<label
 						style={{
-							backgroundColor: "steelblue",
-							color: "white",
-							padding: 10,
 							borderRadius: 4,
 							cursor: "pointer"
 						}}>
-						<label>Username:</label>
-						<input
-							type="text"
-							value={this.state.username}
-							name="username"
-							onChange={this.handleChangeUsername}
-						/>
-						<label>Avatar:</label>
 						{this.state.isUploading && (
 							<p>Progress: {this.state.progress}</p>
 						)}

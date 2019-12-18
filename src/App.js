@@ -92,99 +92,69 @@ const App = () => {
               </ul>
             </div>
           </nav>
-
-					{/* This is the side nav */}
-					<nav className="menu" tabindex="0">
-						<ul>
-							{!!currentUser ? (
-								<>
-									<li class="icon-me">
-										<span>
-											<Link
-												className="nav-link"
-												to="/quiz">
-												Quiz
-											</Link>
-										</span>
-									</li>
-									<li class="icon-pastappointment">
-										<span>
-											<Link
-												className="nav-link"
-												to="/pastAppts">
-												Past Appointments
-											</Link>
-										</span>
-									</li>
-									<li class="icon-appointment">
-										<span>
-											<Link
-												class="nav-link"
-												to="/MakingApts">
-												Make an Appointment
-											</Link>
-										</span>
-									</li>
-									<li className="nav-icon" class="icon-terms">
-										<div class="dropdown">
-											<span>
-												<Link class="dropbtn nav-link">
-													Terminology
-												</Link>
-											</span>
-											<div class="dropdown-content">
-												<a href="/cut">Cut</a>
-												<a href="/dye">Dye</a>
-												<a href="/style">Style</a>
-											</div>
-										</div>
-									</li>
-								</>
-							) : (
-								<></>
-							)}
-						</ul>
-					</nav>
-				</div>
-				<div className="container" className="content-container">
-					{!!currentUser && (
-						<Route exact path="/profile" component={Client} />
-					)}
-					{!!currentUser && (
-						<Route
-							exact
-							path="/MakingApts"
-							component={MakingApts}
-						/>
-					)}
-					{!!currentUser && (
-						<Route
-							exact
-							path="/pastAppts"
-							component={PastAnAppts}
-						/>
-					)}
-					<Route exact path="/login" component={Login} />
-					<Route exact path="/quiz" component={List} />
-					<Route exact path="/signup" component={SignUp} />
-					<Route
-						exact
-						path="/stylist"
-						component={Stylist_Quiz_List}
-					/>
-					{!!currentUser && (
-						<Route exact path="/cut" component={Cut} />
-					)}
-					{!!currentUser && (
-						<Route exact path="/dye" component={Dye} />
-					)}
-					{!!currentUser && (
-						<Route exact path="/style" component={Style} />
-					)}
-				</div>
-			</div>
-		</Router>
-	);
-
+          {/* This is the side nav */}
+          {!!currentUser ? (
+            <nav className="menu menu-hiddme" tabindex="0">
+              <ul>
+                <>
+                  <li class="icon-me">
+                    <span>
+                      <Link className="nav-link" to="/quiz">
+                        Quiz
+                      </Link>
+                    </span>
+                  </li>
+                  <li class="icon-pastappointment">
+                    <span>
+                      <Link className="nav-link" to="/pastAppts">
+                        Past Appointments
+                      </Link>
+                    </span>
+                  </li>
+                  <li class="icon-appointment">
+                    <span>
+                      <Link class="nav-link" to="/MakingApts">
+                        Make an Appointment
+                      </Link>
+                    </span>
+                  </li>
+                  <li className="nav-icon" class="icon-terms">
+                    <div class="dropdown">
+                      <span>
+                        <Link class="dropbtn nav-link">Terminology</Link>
+                      </span>
+                      <div class="dropdown-content">
+                        <a href="/cut">Cut</a>
+                        <a href="/dye">Dye</a>
+                        <a href="/style">Style</a>
+                      </div>
+                    </div>
+                  </li>
+                </>
+              </ul>
+            </nav>
+          ) : (
+            <></>
+          )}
+        </div>
+        <div className="container" className="content-container">
+          {!!currentUser && <Route exact path="/profile" component={Client} />}
+          {!!currentUser && (
+            <Route exact path="/MakingApts" component={MakingApts} />
+          )}
+          {!!currentUser && (
+            <Route exact path="/pastAppts" component={PastAnAppts} />
+          )}
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/quiz" component={List} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/stylist" component={Stylist_Quiz_List} />
+          {!!currentUser && <Route exact path="/cut" component={Cut} />}
+          {!!currentUser && <Route exact path="/dye" component={Dye} />}
+          {!!currentUser && <Route exact path="/style" component={Style} />}
+        </div>
+      </div>
+    </Router>
+  );
 };
 export default App;
