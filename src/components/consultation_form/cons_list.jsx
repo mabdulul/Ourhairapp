@@ -253,7 +253,7 @@ const List = ({history}) => {
 								<input
 									type="radio"
 									name="hairL"
-									value={"option2"}
+									value={"Short"}
 									onChange={e => setLength(e.target.value)}
 									checked={length === "option2"}
 									className="form-check-input"
@@ -266,7 +266,7 @@ const List = ({history}) => {
 								<input
 									type="radio"
 									name="hairL"
-									value={"option3"}
+									value={"Medium"}
 									onChange={e => setLength(e.target.value)}
 									checked={length === "option3"}
 									className="form-check-input"

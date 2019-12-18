@@ -1,12 +1,52 @@
+body {
+    background-color: #F8F8F8;
+}
+
+.app .topNav {
+    height: 80px;
+    background-color: white;
+}
+
+.app .topNav li a {
+    font-size: 20px;
+    color: #90A4B5;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.app .topNav li {
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.app .navbar-right {
+    justify-content: flex-end;
+
+}
+
+.app .nav-signOut {
+    background-color: #FDA729;
+    border-radius: 40px;
+    font-weight: 500;
+    padding: 15px;
+}
+
+.app .nav-signOut .nav-link {
+    color: white;
+}
+
 .menu {
     height: 100vh;
     width: 240px;
     position: fixed;
-    top: 60px;
+    top: 80px;
     left: 0;
     z-index: 5;
     outline: none;
-    background-color: #97D3C7;
+    background-color: #3C6DCC;
+
 }
 
 .menu ul {

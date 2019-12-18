@@ -36,11 +36,10 @@ const App = () => {
       {/* This is the top nav */}
       <div className="app">
         <div>
-          <nav className="navbar navbar-expand-lg navbar-light">
+          <nav className="navbar navbar-expand-lg topNav">
             <div className="nav-box">
               <a className="navbar-brand">
-                <img src={logo} alt="logo" height="36" width="36" />
-                Ease
+                <h1>HairCode</h1>
               </a>
             </div>
             <button
@@ -60,17 +59,17 @@ const App = () => {
               className="collapse navbar-collapse navbar-right"
               id="navbarNav"
             >
-              <ul className="navbar-nav">
+              <ul className="navbar-nav navbar-right">
                 {!!currentUser ? (
                   <>
-                    <li className="nav-item active">
+                    {/* <li className="nav-item active">
                       <a className="nav-link" href="/">
                         Home <span class="sr-only">(current)</span>
                       </a>
-                    </li>
-                    <li className="nav-item nav-up">
+                    </li> */}
+                    <li className="nav-item nav-up nav-signOut">
                       <Link className="nav-link" component={Home}>
-                        Sign Out
+                        SignOut
                       </Link>
                     </li>
                   </>
@@ -100,8 +99,8 @@ const App = () => {
                 <ul>
                   <li class="icon-me">
                     <span>
-                      <Link className="nav-link" to="/quiz">
-                        Quiz
+                      <Link className="nav-link" to="/HairProfile">
+                        Hair Profile
                       </Link>
                     </span>
                   </li>
@@ -145,6 +144,9 @@ const App = () => {
           )}
           {!!currentUser && (
             <Route exact path="/pastAppts" component={PastAnAppts} />
+          )}
+          {!!currentUser && (
+            <Route exact path="/HairProfile" component={HairProfile} />
           )}
           <Route exact path="/login" component={Login} />
           <Route exact path="/quiz" component={List} />
