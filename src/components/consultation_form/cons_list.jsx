@@ -42,7 +42,7 @@ const List = ({ history }) => {
 				file: null,
 				notes
 			});
-			history.push("/");
+			history.push("/pastAppts");
 		} catch (error) {
 			console.log(error);
 		}
