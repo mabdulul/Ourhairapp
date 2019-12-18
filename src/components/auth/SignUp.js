@@ -44,14 +44,6 @@ const SignUp = ({ history }) => {
                   placeholder="Password"
                 />
               </label>
-              <label>
-                <input
-                  className="signup-input"
-                  name="name"
-                  type="text"
-                  placeholder="First Name"
-                />
-              </label>
               <button className="signup-button" type="submit">
                 Sign Up
               </button>

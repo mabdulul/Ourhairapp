@@ -12,10 +12,10 @@
 .login-input {
   outline: 0;
   border: 0;
-  border-bottom: 1.5px solid #dddddd;
-  width: 300px;
+  border-bottom: 1.5px solid #3C6DCC;
+  width: 400px;
   margin-bottom: 1.5rem;
-  font-size: 15px;
+  font-size: 25px;
   padding: 10px;
 }
 
@@ -24,27 +24,20 @@
   text-transform: uppercase;
   cursor: pointer;
   border: none;
-  background: #43484ec5;
+  background: #D92373;
   color: #ffffff;
   padding: 5px;
-  font-size: 1rem;
+  font-size: 25px;
   border-radius: 3px;
   margin-top: 1rem;
 }
 
 .login-header {
-  font-size: 1.2rem;
+  font-size: 30px;
   margin-bottom: 50px;
   font-weight: 600;
   text-align: center;
-  width: 300px;
-  font-family: "Baskervville", serif;
+  width: 400px;
+
 }
 
-.FindYou {
-  position: relative;
-  top: -20px;
-  text-align: center;
-  color: rgb(255, 0, 0);
-  font-weight: 500;
-}
