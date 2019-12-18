@@ -27,10 +27,15 @@ body {
 }
 
 .app .nav-signOut {
-    background-color: #FDA729;
-    border-radius: 40px;
-    font-weight: 500;
-    padding: 15px;
+
+    background-color: #d92373;
+    width: 150px;
+    color: #fff;
+    border: 1px solid #d92373;
+    border-radius: 60px;
+    font-size: 15px;
+    text-align: center;
+
 }
 
 .app .nav-signOut .nav-link {

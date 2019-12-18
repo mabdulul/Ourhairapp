@@ -50,34 +50,30 @@ class HairProfile extends React.Component {
       <section className="dashSections container profile">
         <div className="row profile-row">
           <div class="col-sm-5 col-md-6 col-lg-12">
-            <img
+            {/* <img
               src={picOfgirl}
               className="img-resposive profile-pic "
               alt="profilepic"
-            />
+            /> */}
+            <h2>You hair profile </h2>
           </div>
         </div>
         <div className="row profile-info">
-          <div class="col-sm-12 col-md-6 col-lg-4 profile-box  profile-basicInfo">
+          <div className="col-sm-12 col-md-6 col-lg-4 profile-box  profile-basicInfo">
             {myprofile.map(myprofiles => (
               <>
-                <span className="profile">
-                  {" "}
-                  <h6>Full Name:</h6>
+                <p className="profile">
+                  <span className="profile-text">Full Name:</span>
                   {myprofiles.firstname} {myprofiles.lastname}
-                </span>
+                </p>
                 <p>
-                  <span>
-                    <h6>Birthday</h6>
-                  </span>
+                  <span className="profile-text">Birthday:</span>
                   <Moment unix format="MMMM DD, YYYY">
                     {myprofiles.bday.seconds}
                   </Moment>
                 </p>
                 <p>
-                  <span>
-                    <h6>Gender:</h6>
-                  </span>
+                  <span className="profile-text">Gender:</span>
                   {myprofiles.Gender}
                 </p>
               </>
@@ -87,32 +83,19 @@ class HairProfile extends React.Component {
             {myprofile.map(myprofiles => (
               <>
                 <p className="profile">
-                  <span>
-                    <h6>Type:</h6>
-                  </span>{" "}
+                  <span className="profile-text">Type:</span>{" "}
                   {myprofiles.hairType}
                 </p>
                 <p>
-                  <span>
-                    <h6>Color</h6>
-                  </span>
+                  <span className="profile-text">Color:</span>
                   {myprofiles.NowColor}
                 </p>
                 <p>
-                  <span>
-                    <h6>Length:</h6>
-                  </span>
+                  <span className="profile-text">Length:</span>
                   {myprofiles.length}
                 </p>
               </>
             ))}
-          </div>
-        </div>
-        <div className="row profile-hairpics ">
-          <div class="col-sm-12 col-md-12 col-lg-12 profile-hairpics-col">
-            <img src={picOfgirlOne} className="img-resposive" alt="past-hair" />
-            <img src={picOfgirlOne} className="img-resposive" alt="past-hair" />
-            <img src={picOfgirlOne} className="img-resposive" alt="past-hair" />
           </div>
         </div>
 

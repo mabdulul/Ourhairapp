@@ -4,6 +4,10 @@
 
 }
 
+.profile h2 {
+    text-align: center;
+}
+
 
 .profile-pic {
     border-radius: 50%;
@@ -26,6 +30,11 @@
     margin-right: 15px;
     margin-top: 40px;
 
+}
+
+.profile-text {
+    font-weight: 600;
+    margin-right: 15px;
 }
 
 .profile-hairpics-col {
