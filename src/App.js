@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-//import "./Stylesheets/App.css";
 import "./Stylesheets/MyNav.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./components/auth/Login";
@@ -13,23 +12,23 @@ import MakingApts from "./components/Cust_DashBoard/makingapts";
 import Cut from "./components/terminology/Cut";
 import Dye from "./components/terminology/Dye";
 import Style from "./components/terminology/Style";
-
+import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
 import HairProfile from "./components/Cust_DashBoard/hairprofile";
+// import Dashboard from "./components/Cust_DashBoard/dashboard";
+//import "./Stylesheets/App.css";
+
 // Icons
-//import home from "./images/home.png";
 import quiz from "./images/quiz.png";
-//import signup from "./images/signup.png";
-//import signin from "./images/signin.png";
-//import stylist from "./images/style.png";
-//import signout from "./images/signoff.png";
 import past from "./images/past.png";
 import appt from "./images/appt.png";
 import terms from "./images/terms.png";
 import logo from "./images/logo.svg";
 import navlogo from "./images/topnav2.svg";
-
-import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
-//import Dashboard from "./components/Cust_DashBoard/dashboard";
+//import signup from "./images/signup.png";
+//import signin from "./images/signin.png";
+//import stylist from "./images/style.png";
+//import signout from "./images/signoff.png";
+//import home from "./images/home.png";
 
 const App = () => {
 	const { currentUser } = useContext(AuthContext);
@@ -111,7 +110,7 @@ const App = () => {
 						</div>
 					</nav>
 
-					{/* This is the bottom nav */}
+					{/* This is the side nav */}
 					<nav className="menu" tabindex="0">
 						<ul>
 							{!!currentUser ? (
