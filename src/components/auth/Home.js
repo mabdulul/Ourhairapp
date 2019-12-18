@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-//import { BrowserRouter as Route, Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import firedatabase from "./base";
-//import firebase from "./base";
+import Login from "../../components/auth/Login";
 
 const Home = () => {
 	const user = firedatabase.auth().currentUser;
@@ -15,6 +14,7 @@ const Home = () => {
 				onClick={() => firedatabase.auth().signOut()}>
 				Sign Out
 			</Link>
+			<Route exact path="/login" component={Login} />
 		</>
 	);
 };

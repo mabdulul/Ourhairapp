@@ -10,17 +10,17 @@ In order for the project to work on your computer, should you clone it, you'll n
 
 ```
 npm install
+npm install axios
 npm install moment react-moment
 ```
 
 ## Collaboration Notes
 
-- We worked together through Github and would push and pull our changes. There were quite a few merge conflicts but we were able to fix any issues that arose.
+-   We worked together through Github and would push and pull our changes. There were quite a few merge conflicts but we were able to fix any issues that arose.
 
-- Firebase was something new we've never used before so it was an interesting challenge. We had a limited time frame to learn how to use this for our database but we were able to successfully incorporate it into our project.
+-   Firebase was something new we've never used before so it was an interesting challenge. We had a limited time frame to learn how to use this for our database but we were able to successfully incorporate it into our project.
 
-- As a group, we divided up work between ourselves and helped each other when we got stuck. It was a great way to practice communication and also how to handle a situation where members had conflicting ideas. Through compromise or alternate solutions, we were able to come to a conclusion that we were all satisfied with.
-
+-   As a group, we divided up work between ourselves and helped each other when we got stuck. It was a great way to practice communication and also how to handle a situation where members had conflicting ideas. Through compromise or alternate solutions, we were able to come to a conclusion that we were all satisfied with.
 
 ## Built With
 
