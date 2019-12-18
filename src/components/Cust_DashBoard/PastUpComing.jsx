@@ -3,6 +3,7 @@ import firebase from "../auth/base";
 import firedatabase from "../auth/base";
 import Moment from "react-moment";
 import PastAnAppts from "./PastAppts";
+import "../../Stylesheets/appointments.css";
 
 class PastUpComing extends React.Component {
   state = {
@@ -47,8 +48,8 @@ class PastUpComing extends React.Component {
     const { usersA } = this.state;
     return (
       <>
-        <section class="dashSections">
-          <h1>UpComing Appointments</h1>
+        <section class="dashSections Appts">
+          <h3>Appointments</h3>
           <table class="table">
             <thead>
               <tr>

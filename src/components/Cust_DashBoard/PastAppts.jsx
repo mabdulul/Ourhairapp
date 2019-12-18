@@ -47,8 +47,8 @@ class PastAnAppts extends React.Component {
     const { users } = this.state;
     return (
       <>
-        <section className="dashSections">
-          <h1>Past Appointment</h1>
+        <section className="dashSections Appts">
+          <h3>Past Appointment</h3>
           <table class="table">
             <thead>
               <tr>

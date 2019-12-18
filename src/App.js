@@ -99,13 +99,13 @@ const App = () => {
             <nav className="menu menu-hiddme" tabindex="0">
               <ul>
                 <>
-                  <li class="icon-me">
+                  {/* <li class="icon-me">
                     <span>
                       <Link className="nav-link" to="/quiz">
                         Quiz
                       </Link>
                     </span>
-                  </li>
+                  </li> */}
                   <li class="icon-pastappointment">
                     <span>
                       <Link className="nav-link" to="/pastUpcoming">
