@@ -10,6 +10,7 @@ class MakingApts extends React.Component {
   state = {
     date: new Date(),
     notes: "",
+    type: " ",
     uid: ""
   };
   componentDidMount = () => {
@@ -31,6 +32,7 @@ class MakingApts extends React.Component {
 
     const db = firebase.firestore();
     const userRef = db.collection("appointments").add({
+      type: this.state.type,
       Cust_Notes: this.state.notes,
       Date_of_Appt: this.state.date,
       UserId: this.state.uid
@@ -58,6 +60,19 @@ class MakingApts extends React.Component {
             onChange={this.onChange}
             value={this.state.date}
           />
+          <label>
+            What you like to be done:
+            <select
+              value={this.state.type}
+              name="type"
+              onChange={this.updateInput}
+            >
+              <option value="cut">Cut</option>
+              <option value="color">Color</option>
+              <option value="trim">trim</option>
+              <option value="blowOut">BlowOut</option>
+            </select>
+          </label>
           <input
             type="text"
             name="notes"
