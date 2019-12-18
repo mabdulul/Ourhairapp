@@ -5,44 +5,46 @@ import Moment from "react-moment";
 // import Modal from "../../Cust_DashBoard/modal";
 
 class PastAnAppts extends React.Component {
-  state = {
-    uid: "",
-    users: [],
-    docId: []
-  };
-  componentDidMount = () => {
-    this.fetchCurrentUser();
-  };
-  fetchCurrentUser = async () => {
-    var user = firedatabase.auth().currentUser;
-    var uid;
-    if (user != null) {
-      //   name = user.displayName;
-      //   email = user.email;
-      //   photoUrl = user.photoURL;
-      //   emailVerified = user.emailVerified;
-      uid = user.uid;
-    }
-    this.setState({
-      uid: user.uid
-    });
-    // Getting the current data to view the past appts
-    const today = new Date();
-    firebase
-      .firestore()
-      .collection("appointments")
-      .where("UserId", "==", user.uid)
-      .where("Date_of_Appt", "<=", today)
-      .get()
-      .then(querySnapshot => {
-        const data = querySnapshot.docs.map(doc => doc.data());
-        this.setState({ users: data });
-      })
-      .catch(function(error) {
-        console.log("Error getting documents: ", error);
-      });
-  };
+	state = {
+		uid: "",
+		users: [],
+		docId: []
+	};
+	componentDidMount = () => {
+		this.fetchCurrentUser();
+	};
+	fetchCurrentUser = async () => {
+		var user = firedatabase.auth().currentUser;
+		var uid;
+		if (user != null) {
+			//   name = user.displayName;
+			//   email = user.email;
+			//   photoUrl = user.photoURL;
+			//   emailVerified = user.emailVerified;
+			uid = user.uid;
+		}
+		this.setState({
+			uid: user.uid
+		});
+		// Getting the current data to view the past appts
+		const today = new Date();
+		firebase
+			.firestore()
+			.collection("appointments")
+			.where("UserId", "==", user.uid)
+			.where("Date_of_Appt", "<=", today)
+			.get()
+			.then(querySnapshot => {
+				const data = querySnapshot.docs.map(doc => doc.data());
+				this.setState({ users: data });
+			})
+			.catch(function(error) {
+				console.log("Error getting documents: ", error);
+			});
+	};
 
+	render() {
+		const { users } = this.state;
 		return (
 			<>
 				<section>
