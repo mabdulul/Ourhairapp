@@ -3,7 +3,8 @@ import React, {Component, useState, useEffect} from 'react';
 import Calendar from 'react-calendar';
 import firebase from 'firebase';
 import firedatabase from '../auth/base';
-import ProfilePage from "../example"
+import ProfilePage from "../example";
+import DbButton from './dbButton';
 
 
 const List = () => {
@@ -12,8 +13,8 @@ const List = () => {
     fetchUserId();
   }, []);
   
-  const fetchUserId = () =>{
-    let user = firedatabase.auth().currentUser;
+  const fetchUserId = async () =>{
+    let user = await firedatabase.auth().currentUser;
     console.log(user.uid);
   }
 
@@ -25,8 +26,18 @@ const List = () => {
   const [colored, setColored] = useState("");
   const [pro, setPro] = useState("");
   const [date, setDate] = useState("");
-  const [picture, setPicture] = useState("");
   const [notes, setNotes] = useState("");
+  const [image, setImage] = useState([]);
+
+  const handleUploadedSuccess = filename => {
+    setImage({...image, avatar: filename, progress: 100, isUploading: false})
+		firebase
+			.storage()
+			.ref("Quiz_Images")
+			.child(filename)
+			.getDownloadURL()
+			.then(url => this.setState({ avatarURL: url }));
+	};
 
   const SubmitData = e => {
     e.preventDefault();
@@ -35,14 +46,14 @@ const List = () => {
 
     //defining parameters for collection from form
     const userRef = db.collection("Quiz_list").add({
+      user,
       hairType,
       length,
       porosity,
       dye: colored,
       pro,
       date,
-      file: "",
-      notes
+      notes,
     });
   }
     
@@ -293,7 +304,7 @@ const List = () => {
 
 {/* hair dye section which leads into a turnary */}
               <div className="form-group">
-                          <p>Has your hair been colored in me last two years?</p>
+                          <p>Has your hair been colored in the last two years?</p>
                       <div className="form-check">
                   <label>
                       <input type="radio"
@@ -362,7 +373,7 @@ const List = () => {
                 <div className="form-group">
                   <p>What is your ideal hair?</p>
                   <label>
-                  <ProfilePage />
+                    <ProfilePage handleUploadedSuccess={handleUploadedSuccess}/>
                   </label>
                   <label>
                     <input
