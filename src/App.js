@@ -14,7 +14,7 @@ import Dye from "./components/terminology/Dye";
 import Style from "./components/terminology/Style";
 import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
 import HairProfile from "./components/Cust_DashBoard/hairprofile";
-import Dashboard from "./components/Cust_DashBoard/dashboard";
+// import Dashboard from "./components/Cust_DashBoard/dashboard";
 //import "./Stylesheets/App.css";
 
 // Icons
@@ -154,7 +154,7 @@ const App = () => {
 					)}
 				</div>
 				<div className="container" className="content-container">
-					{!!currentUser && <Dashboard />}
+					{/* {!!currentUser && <Dashboard />} */}
 					{!!currentUser && (
 						<Route exact path="/profile" component={Client} />
 					)}
