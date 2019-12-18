@@ -1,4 +1,3 @@
-
 import React, {Component, useState, useEffect} from 'react';
 import Calendar from 'react-calendar';
 import firebase from 'firebase';
@@ -214,6 +213,7 @@ const List = ( {history }) => {
 
 
                    {/* The Lenght of Your Hair */}
+
 						<h6>Length of hair</h6>
 						<div className="form-check">
 							<label>
@@ -355,4 +355,3 @@ const List = ( {history }) => {
 }
 
 export default List;
-

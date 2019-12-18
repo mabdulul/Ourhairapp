@@ -30,6 +30,8 @@ import navlogo from "./images/topnav2.svg";
 //import signout from "./images/signoff.png";
 //import home from "./images/home.png";
 
+import PastUpComing from "./components/Cust_DashBoard/PastUpComing";
+
 const App = () => {
   const { currentUser } = useContext(AuthContext);
   return (
@@ -37,11 +39,10 @@ const App = () => {
       {/* This is the top nav */}
       <div className="app">
         <div>
-          <nav className="navbar navbar-expand-lg navbar-light">
+          <nav className="navbar navbar-expand-lg navbar-light fixed-top navBar-color">
             <div className="nav-box">
               <a className="navbar-brand">
-                <img src={logo} alt="logo" height="36" width="36" />
-                Ease
+                <h3>HairCode</h3>
               </a>
             </div>
             <button
@@ -64,11 +65,11 @@ const App = () => {
               <ul className="navbar-nav">
                 {!!currentUser ? (
                   <>
-                    <li className="nav-item active">
+                    {/* <li className="nav-item active">
                       <a className="nav-link" href="/">
                         Home <span class="sr-only">(current)</span>
                       </a>
-                    </li>
+                    </li> */}
                     <li className="nav-item nav-up">
                       <Link className="nav-link" component={Home}>
                         Sign Out
@@ -92,23 +93,22 @@ const App = () => {
               </ul>
             </div>
           </nav>
-
           {/* This is the side nav */}
           {!!currentUser ? (
             <nav className="menu menu-hiddme" tabindex="0">
               <ul>
                 <>
-                  <li class="icon-me">
+                  {/* <li class="icon-me">
                     <span>
                       <Link className="nav-link" to="/quiz">
                         Quiz
                       </Link>
                     </span>
-                  </li>
+                  </li> */}
                   <li class="icon-pastappointment">
                     <span>
-                      <Link className="nav-link" to="/pastAppts">
-                        Past Appointments
+                      <Link className="nav-link" to="/pastUpcoming">
+                        Dashboard
                       </Link>
                     </span>
                   </li>
@@ -145,6 +145,9 @@ const App = () => {
           )}
           {!!currentUser && (
             <Route exact path="/pastAppts" component={PastAnAppts} />
+          )}
+          {!!currentUser && (
+            <Route exact path="/pastUpcoming" component={PastUpComing} />
           )}
           <Route exact path="/login" component={Login} />
           <Route exact path="/quiz" component={List} />
