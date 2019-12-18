@@ -1,57 +1,51 @@
 body {
-    background-color: #F8F8F8;
+	background-color: #f8f8f8;
 }
 
 .app .topNav {
-    height: 80px;
-    background-color: white;
+	height: 80px;
+	background-color: white;
 }
 
 .app .topNav li a {
-    font-size: 20px;
-    color: #90A4B5;
-    padding-left: 10px;
-    padding-right: 10px;
-
+	font-size: 20px;
+	color: #90a4b5;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .app .topNav li {
-    padding-left: 15px;
-    padding-right: 15px;
-
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .app .navbar-right {
-    justify-content: flex-end;
-
+	justify-content: flex-end;
 }
 
 .app .nav-signOut {
-
-    background-color: #d92373;
-    width: 150px;
-    color: #fff;
-    border: 1px solid #d92373;
-    border-radius: 60px;
-    font-size: 15px;
-    text-align: center;
-
+	background-color: #d92373;
+	width: 150px;
+	color: #fff;
+	border: 1px solid #d92373;
+	border-radius: 60px;
+	font-size: 15px;
+	text-align: center;
 }
 
 .app .nav-signOut .nav-link {
-    color: white;
+	color: white;
 }
 
 .menu {
-
-    height: 100vh;
-    width: 240px;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    z-index: 5;
-    outline: none;
-    background-color: #3C6DCC;
+	height: 100vh;
+	width: 240px;
+	position: fixed;
+	top: 80px;
+	left: 0;
+	z-index: 5;
+	outline: none;
+	background-color: #3c6dcc;
 
 }
 
@@ -73,13 +67,10 @@ body {
 }
 
 .menu ul li a {
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 500;
-
+	color: white;
+	font-size: 1.1rem;
+	font-weight: 500;
 }
-
-
 
 .menu ul li.icon-appointment {
 	background-image: url("../images/appointment2.svg");
@@ -260,7 +251,6 @@ body {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
 	background-color: rgba(0, 0, 0, 0.1);
-	color: rgb(90, 88, 88);
 }
 
 /* Show the dropdown menu on hover */

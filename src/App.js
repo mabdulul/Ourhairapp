@@ -92,7 +92,6 @@ const App = () => {
               </ul>
             </div>
           </nav>
-
           {/* This is the side nav */}
           {!!currentUser ? (
             <nav className="menu menu-hiddme" tabindex="0">
