@@ -14,7 +14,6 @@ import Dye from "./components/terminology/Dye";
 import Style from "./components/terminology/Style";
 import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
 import HairProfile from "./components/Cust_DashBoard/hairprofile";
-// import Dashboard from "./components/Cust_DashBoard/dashboard";
 //import "./Stylesheets/App.css";
 
 // Icons
@@ -118,7 +117,7 @@ const App = () => {
 										<span>
 											<Link
 												className="nav-link"
-												to="/pastUpcoming">
+												to="/dashboard">
 												Dashboard
 											</Link>
 										</span>
@@ -127,7 +126,7 @@ const App = () => {
 										<span>
 											<Link
 												class="nav-link"
-												to="/MakingApts">
+												to="/make-appointment">
 												Make an Appointment
 											</Link>
 										</span>
@@ -154,14 +153,13 @@ const App = () => {
 					)}
 				</div>
 				<div className="container" className="content-container">
-					{/* {!!currentUser && <Dashboard />} */}
 					{!!currentUser && (
 						<Route exact path="/profile" component={Client} />
 					)}
 					{!!currentUser && (
 						<Route
 							exact
-							path="/MakingApts"
+							path="/make-appointment"
 							component={MakingApts}
 						/>
 					)}
@@ -175,7 +173,7 @@ const App = () => {
 					{!!currentUser && (
 						<Route
 							exact
-							path="/pastUpcoming"
+							path="/dashboard"
 							component={PastUpComing}
 						/>
 					)}
