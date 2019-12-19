@@ -92,7 +92,7 @@ const App = () => {
 						</div>
 					</nav>
 					{!!currentUser ? (
-						<nav className="menu menu-hiddme" tabindex="0">
+						<nav className="menu menu-hiddme" tabIndex="0">
 							<ul>
 								<>
 									{/* This is the hair quiz, uncomment to access in navbar */}
