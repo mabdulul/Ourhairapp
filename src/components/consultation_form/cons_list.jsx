@@ -5,6 +5,7 @@ import firedatabase from "../auth/base";
 import ProfilePage from "../example";
 import DbButton from "./dbButton";
 import "../../Stylesheets/quiz.css";
+import "../../Stylesheets/global.css"
 
 const List = ({ history }) => {
 	// grabbing user reference
@@ -25,6 +26,10 @@ const List = ({ history }) => {
 	const [colored, setColored] = useState("");
 	const [pro, setPro] = useState("");
 	const [date, setDate] = useState("");
+	
+	const [born, setBorn] = useState("");
+	const [NowColor, setNowColor] = useState("");
+	// const [picture, setPicture] = useState(""); We will use it later
 	const [notes, setNotes] = useState("");
 	const [image, setImage] = useState([]);
 
@@ -59,10 +64,13 @@ const List = ({ history }) => {
 				porosity,
 				dye: colored,
 				pro,
+				bday: born,
 				date,
+				file: null,
+				NowColor,
 				notes
 			});
-			history.push("/pastAppts");
+			history.push("/");
 		} catch (error) {
 			console.log(error);
 		}
@@ -70,14 +78,50 @@ const List = ({ history }) => {
 
 	//start of form
 	return (
-		<div className="container">
+		<div className="container dashSections">
 			<div className="row mt-5">
 				<div className="col-sm-12">
 					<form onSubmit={SubmitData}>
 						{/* hair types section */}
-						<p>Hair type</p>
+						<h3>Hair type</h3>
 						<div className="form-group">
-							<p>Type 1: Straight</p>
+							<div className="Quizform-name">
+								<label>
+									First Name:
+									<input
+										type="text"
+										name="firstname"
+										placeholder="Jane"
+										value={firstname}
+										onChange={e => setUser(e.target.value)}
+										className="form-text-input"
+									/>
+								</label>
+								<label>
+									Last Name:
+									<input
+										type="text"
+										name="lastname"
+										placeholder="Doe"
+										value={lastname}
+										onChange={e => lastUser(e.target.value)}
+										className="form-text-input"
+									/>
+								</label>
+								<label>
+									Color:
+									<input
+										type="text"
+										name="color"
+										placeholder="What is the color of your hair ?"
+										value={NowColor}
+										onChange={e => setNowColor(e.target.value)}
+										className="form-text-input"
+									/>
+								</label>
+							</div>
+
+							<h6>Straight</h6>
 							<div className="form-check">
 								<label>
 									<input
@@ -329,6 +373,15 @@ const List = ({ history }) => {
 									/>
 									No
 								</label>
+								<div className="form-group">
+									<div className="form-calendar">
+										<h6>When were you born?</h6>
+										<Calendar
+											value={born}
+											onChange={born => setBorn(born)}
+										/>
+									</div>
+								</div>
 							</div>
 						</div>
 						{colored === "colored" ? (
