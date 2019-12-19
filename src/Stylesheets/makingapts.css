@@ -1,23 +1,33 @@
-/* .makingapt-box {
-  display: flex;
-  justify-content: center;
-  margin-top: 5rem;
+.Calendar {
+	justify-content: center;
+	outline: 0;
+	width: 500px;
+	margin: auto;
+	padding: 10px;
 }
+
+.makingapt-input {
+	outline: 0;
+	border: 0;
+	border-bottom: 1.5px solid #dddddd;
+	width: 300px;
+	margin-bottom: 1.5rem;
+	font-size: 15px;
+	padding: 10px;
+}
+
+.Calendar .btn-primary {
+	margin-top: 10px;
+}
+
+/* 
 
 .makingapt {
   display: flex;
   flex-direction: column;
 }
 
-.makingapt-input {
-  outline: 0;
-  border: 0;
-  border-bottom: 1.5px solid #dddddd;
-  width: 300px;
-  margin-bottom: 1.5rem;
-  font-size: 15px;
-  padding: 10px;
-}
+
 
 .makingapt-button {
   outline: none;
