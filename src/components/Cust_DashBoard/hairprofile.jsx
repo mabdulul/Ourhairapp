@@ -52,28 +52,35 @@ class HairProfile extends React.Component {
 						<>
 							<ul className="profile">
 								<li>
-									<span className="profile-text">
-										Full Name:
+									<span class="profile-text">Full Name</span>
+									<span className="caps">
+										{myprofiles.firstname}{" "}
+										{myprofiles.lastname}
 									</span>
-									{myprofiles.firstname} {myprofiles.lastname}
 								</li>
 								<li>
 									<span className="profile-text">
-										Hair Type:
-									</span>{" "}
-									{myprofiles.hairType}
+										Hair Type
+									</span>
+									<span className="caps">
+										{myprofiles.hairType}
+									</span>
 								</li>
 								<li>
 									<span className="profile-text">
-										Hair Color:
+										Hair Color
 									</span>
-									{myprofiles.NowColor}
+									<span className="caps">
+										{myprofiles.NowColor}
+									</span>
 								</li>
 								<li>
 									<span className="profile-text">
-										Hair Length:
+										Hair Length
 									</span>
-									{myprofiles.length}
+									<span className="caps">
+										{myprofiles.length}
+									</span>
 								</li>
 							</ul>
 						</>

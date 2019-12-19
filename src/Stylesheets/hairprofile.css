@@ -3,8 +3,7 @@
 	margin-right: 15px;
 	text-transform: uppercase;
 }
-
-.profile-basicInfo p {
+.caps {
 	text-transform: capitalize;
 }
 
@@ -21,9 +20,6 @@
 	list-style: none;
 	text-transform: capitalize;
 	margin: 20px;
-}
-
-.profile-box ul span {
 }
 
 .profile-box img {

@@ -69,7 +69,7 @@ class PastAnAppts extends React.Component {
 											{user.Date_of_Appt.seconds}
 										</Moment>
 									</td>
-									<td>{user.Type}</td>
+									<td>{user.type}</td>
 									<td>{user.Stylist}</td>
 								</tr>
 							))}
