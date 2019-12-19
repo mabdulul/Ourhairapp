@@ -5,8 +5,7 @@ import Moment from "react-moment";
 import "../../Stylesheets/global.css";
 import "../../Stylesheets/hairprofile.css";
 
-import sean from "../../images/sean.JPG";
-import picOfgirlOne from "../../images/sel1.jpg";
+import person from "../../images/person.png";
 
 class HairProfile extends React.Component {
   state = {
@@ -49,7 +48,7 @@ class HairProfile extends React.Component {
     return (
       <section className="dashSections">
         <div className="profile-box ">
-          <img className="img-fluid" src={sean} alt="shawn" />
+          <img className="img-fluid" src={person} alt="shawn" />
           {myprofile.map(myprofiles => (
             <>
               <ul className="profile">
