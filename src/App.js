@@ -14,7 +14,6 @@ import Dye from "./components/terminology/Dye";
 import Style from "./components/terminology/Style";
 import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
 import HairProfile from "./components/Cust_DashBoard/hairprofile";
-// import Dashboard from "./components/Cust_DashBoard/dashboard";
 //import "./Stylesheets/App.css";
 
 // Icons
@@ -23,6 +22,7 @@ import past from "./images/past.png";
 import appt from "./images/appt.png";
 import terms from "./images/terms.png";
 import logo from "./images/logo.svg";
+import favicon from "./images/logofavicon.png";
 import navlogo from "./images/topnav2.svg";
 //import signup from "./images/signup.png";
 //import signin from "./images/signin.png";
@@ -42,7 +42,14 @@ const App = () => {
 					<nav className="navbar navbar-expand-lg navbar-light fixed-top navBar-color">
 						<div className="nav-box">
 							<a className="navbar-brand">
-								<h3>HairCode</h3>
+								<div className="favicon-logo">
+									<img
+										src={favicon}
+										alt="icon-logo"
+										className="favicon"
+									/>
+									<h3>HairCode</h3>
+								</div>
 							</a>
 						</div>
 						<button
@@ -94,7 +101,7 @@ const App = () => {
 											<Link
 												className="nav-link"
 												to="/login">
-												Members Login
+												Member Login
 											</Link>
 										</li>
 									</>
@@ -116,9 +123,7 @@ const App = () => {
                   </li> */}
 									<li class="icon-pastappointment">
 										<span>
-											<Link
-												className="nav-link"
-												to="/pastUpcoming">
+											<Link className="nav-link" to="/">
 												Dashboard
 											</Link>
 										</span>
@@ -127,7 +132,7 @@ const App = () => {
 										<span>
 											<Link
 												class="nav-link"
-												to="/MakingApts">
+												to="/make-appointment">
 												Make an Appointment
 											</Link>
 										</span>
@@ -154,14 +159,13 @@ const App = () => {
 					)}
 				</div>
 				<div className="container" className="content-container">
-					{/* {!!currentUser && <Dashboard />} */}
 					{!!currentUser && (
 						<Route exact path="/profile" component={Client} />
 					)}
 					{!!currentUser && (
 						<Route
 							exact
-							path="/MakingApts"
+							path="/make-appointment"
 							component={MakingApts}
 						/>
 					)}
@@ -173,11 +177,7 @@ const App = () => {
 						/>
 					)}
 					{!!currentUser && (
-						<Route
-							exact
-							path="/pastUpcoming"
-							component={PastUpComing}
-						/>
+						<Route exact path="/" component={PastUpComing} />
 					)}
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/quiz" component={List} />

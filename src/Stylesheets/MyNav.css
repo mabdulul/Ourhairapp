@@ -1,6 +1,12 @@
 body {
 	background-color: #f8f8f8;
 }
+.favicon-logo {
+	display: flex;
+}
+.favicon {
+	width: 47px;
+}
 
 /** This will move everthing to inside the navBar ***/
 
@@ -256,7 +262,6 @@ body {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
 	background-color: rgba(0, 0, 0, 0.1);
-	color: rgb(90, 88, 88);
 }
 
 /* Show the dropdown menu on hover */
