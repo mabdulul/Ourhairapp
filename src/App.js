@@ -13,30 +13,17 @@ import Cut from "./components/terminology/Cut";
 import Dye from "./components/terminology/Dye";
 import Style from "./components/terminology/Style";
 import PastAnAppts from "./components/Cust_DashBoard/PastAppts";
+import PastUpComing from "./components/Cust_DashBoard/PastUpComing";
 import HairProfile from "./components/Cust_DashBoard/hairprofile";
-//import "./Stylesheets/App.css";
 
 // Icons
-import quiz from "./images/quiz.png";
-import past from "./images/past.png";
-import appt from "./images/appt.png";
-import terms from "./images/terms.png";
-import logo from "./images/logo.svg";
 import favicon from "./images/logofavicon.png";
 import navlogo from "./images/topnav2.svg";
-//import signup from "./images/signup.png";
-//import signin from "./images/signin.png";
-//import stylist from "./images/style.png";
-//import signout from "./images/signoff.png";
-//import home from "./images/home.png";
-
-import PastUpComing from "./components/Cust_DashBoard/PastUpComing";
 
 const App = () => {
 	const { currentUser } = useContext(AuthContext);
 	return (
 		<Router>
-			{/* This is the top nav */}
 			<div className="app">
 				<div>
 					<nav className="navbar navbar-expand-lg navbar-light fixed-top navBar-color">
@@ -75,11 +62,6 @@ const App = () => {
 							<ul className="navbar-nav">
 								{!!currentUser ? (
 									<>
-										{/* <li className="nav-item active">
-                      <a className="nav-link" href="/">
-                        Home <span class="sr-only">(current)</span>
-                      </a>
-                    </li> */}
 										<li className="nav-item nav-up">
 											<Link
 												className="nav-link"
@@ -109,18 +91,20 @@ const App = () => {
 							</ul>
 						</div>
 					</nav>
-					{/* This is the side nav */}
 					{!!currentUser ? (
 						<nav className="menu menu-hiddme" tabindex="0">
 							<ul>
 								<>
+									{/* This is the hair quiz, uncomment to access in navbar */}
 									{/* <li class="icon-me">
-                    <span>
-                      <Link className="nav-link" to="/quiz">
-                        Quiz
-                      </Link>
-                    </span>
-                  </li> */}
+										<span>
+											<Link
+												className="nav-link"
+												to="/quiz">
+												Quiz
+											</Link>
+										</span>
+									</li> */}
 									<li class="icon-pastappointment">
 										<span>
 											<Link className="nav-link" to="/">
@@ -133,7 +117,7 @@ const App = () => {
 											<Link
 												class="nav-link"
 												to="/make-appointment">
-												Make an Appointment
+												Make Appointment
 											</Link>
 										</span>
 									</li>
