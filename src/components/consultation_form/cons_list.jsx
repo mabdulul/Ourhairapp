@@ -5,7 +5,7 @@ import firedatabase from "../auth/base";
 import ProfilePage from "../example";
 import DbButton from "./dbButton";
 import "../../Stylesheets/quiz.css";
-import "../../Stylesheets/global.css"
+import "../../Stylesheets/global.css";
 
 const List = ({ history }) => {
 	// grabbing user reference
@@ -26,12 +26,11 @@ const List = ({ history }) => {
 	const [colored, setColored] = useState("");
 	const [pro, setPro] = useState("");
 	const [date, setDate] = useState("");
-	
 	const [born, setBorn] = useState("");
 	const [NowColor, setNowColor] = useState("");
-	// const [picture, setPicture] = useState(""); We will use it later
 	const [notes, setNotes] = useState("");
 	const [image, setImage] = useState([]);
+	// const [picture, setPicture] = useState(""); We will use it later
 
 	const handleUploadedSuccess = filename => {
 		setImage({
@@ -59,9 +58,9 @@ const List = ({ history }) => {
 				userid: user.uid,
 				firstname,
 				hairType,
+				porosity,
 				lastname,
 				length,
-				porosity,
 				dye: colored,
 				pro,
 				bday: born,
@@ -75,15 +74,13 @@ const List = ({ history }) => {
 			console.log(error);
 		}
 	};
-
 	//start of form
 	return (
 		<div className="container dashSections">
 			<div className="row mt-5">
 				<div className="col-sm-12">
 					<form onSubmit={SubmitData}>
-						{/* hair types section */}
-						<h3>Hair type</h3>
+						<h1>Hair Questionaire</h1>
 						<div className="form-group">
 							<div className="Quizform-name">
 								<label>
@@ -109,34 +106,39 @@ const List = ({ history }) => {
 									/>
 								</label>
 								<label>
-									Color:
+									Hair Color:
 									<input
 										type="text"
 										name="color"
-										placeholder="What is the color of your hair ?"
+										placeholder="Color"
 										value={NowColor}
-										onChange={e => setNowColor(e.target.value)}
+										onChange={e =>
+											setNowColor(e.target.value)
+										}
 										className="form-text-input"
 									/>
 								</label>
 							</div>
-
-							<h6>Straight</h6>
+							{/* hair types section */}
+							<h5>Type 1: Straight</h5>
 							<div className="form-check">
 								<label>
 									<input
 										type="radio"
 										name="type"
-										value={"1a"}
+										value={"Straight: Fine/Thin"}
 										onChange={e =>
 											setHairType(e.target.value)
 										}
-										checked={hairType === "1a"}
+										checked={
+											hairType === "Straight: Fine/Thin"
+										}
 										className="form-check-input"
 									/>
-									1a Straight (Fine/Thin) Hair tends to be
-									very soft, thin, shiny, oily, poor at
-									holding curls, difficult to damage.
+									<i>1a Straight</i> (<b>Fine</b>/<b>Thin</b>)
+									Hair tends to be very soft, thin, shiny,
+									oily, poor at holding curls, and difficult
+									to damage
 								</label>
 							</div>
 							<div className="form-check">
@@ -144,15 +146,17 @@ const List = ({ history }) => {
 									<input
 										type="radio"
 										name="type"
-										value={"1b"}
+										value={"Straight: Medium"}
 										onChange={e =>
 											setHairType(e.target.value)
 										}
-										checked={hairType === "1b"}
+										checked={
+											hairType === "Straight: Medium"
+										}
 										className="form-check-input"
 									/>
-									1b Straight (Medium) Hair characterized by
-									volume and body.
+									<i>1b Straight</i> (<b>Medium</b>) Hair is
+									characterized by volume and body
 								</label>
 							</div>
 							<div className="form-check">
@@ -160,50 +164,37 @@ const List = ({ history }) => {
 									<input
 										type="radio"
 										name="type"
-										value={"1c"}
+										value={"Straight: Coarse"}
 										onChange={e =>
 											setHairType(e.target.value)
 										}
-										checked={hairType === "1c"}
+										checked={
+											hairType === "Straight: Coarse"
+										}
 										className="form-check-input"
 									/>
-									1c Straight (Coarse) Hair tends to be
-									bone-straight, coarse, difficult to curl.
+									<i>1c Straight </i>(<b>Coarse</b>) Hair
+									tends to be bone-straight, thick, and
+									difficult to curl
 								</label>
 							</div>
-							<p>Type 2: Wavy</p>
+							<h5>Type 2: Wavy</h5>
 							<div className="form-check">
 								<label>
 									<input
 										type="radio"
 										name="type"
-										value={"2a"}
+										value={"Wavy: Fine/Thin"}
 										onChange={e =>
 											setHairType(e.target.value)
 										}
-										checked={hairType === "2a"}
+										checked={hairType === "Wavy: Fine/Thin"}
 										className="form-check-input"
 									/>
-									2a Wavy (Fine/Thin) Hair has definite "S"
-									pattern, can easily be straightened or
-									curled, usually receptive to a variety of
-									styles.
-								</label>
-							</div>
-							<div className="form-check">
-								<label>
-									<input
-										type="radio"
-										name="type"
-										value={"2b"}
-										onChange={e =>
-											setHairType(e.target.value)
-										}
-										checked={hairType === "2b"}
-										className="form-check-input"
-									/>
-									2b Wavy (Medium) Can tend to be frizzy and a
-									little resistant to styling.
+									<i>2a Wavy</i> (<b>Fine</b>/<b>Thin</b>)
+									Hair has a defined "S" pattern, can easily
+									be straightened or curled, and is usually
+									receptive to a variety of styles
 								</label>
 							</div>
 							<div className="form-check">
@@ -211,34 +202,15 @@ const List = ({ history }) => {
 									<input
 										type="radio"
 										name="type"
-										value={"2c"}
+										value={"Wavy: Medium"}
 										onChange={e =>
 											setHairType(e.target.value)
 										}
-										checked={hairType === "2c"}
+										checked={hairType === "Wavy: Medium"}
 										className="form-check-input"
 									/>
-									2c Wavy (Coarse) Fairly coarse, frizzy or
-									very frizzy with thicker waves, often more
-									resistant to styling.
-								</label>
-							</div>
-							<p>Type 3: Curly</p>
-							<div className="form-check">
-								<label>
-									<input
-										type="radio"
-										name="type"
-										value={"3a"}
-										onChange={e =>
-											setHairType(e.target.value)
-										}
-										checked={hairType === "3a"}
-										className="form-check-input"
-									/>
-									3a Curly (Loose) Presents a definite "S"
-									pattern, tends to combine thickness, volume,
-									and/or frizziness.
+									<i>2b Wavy</i> (<b>Medium</b>) Hair tends to
+									be frizzy and a little resistant to styling
 								</label>
 							</div>
 							<div className="form-check">
@@ -246,34 +218,35 @@ const List = ({ history }) => {
 									<input
 										type="radio"
 										name="type"
-										value={"3b"}
+										value={"Wavy: Coarse"}
 										onChange={e =>
 											setHairType(e.target.value)
 										}
-										checked={hairType === "3b"}
+										checked={hairType === "Wavy: Coarse"}
 										className="form-check-input"
 									/>
-									3b Curly (Tight) Presents a definite "S"
-									pattern, curls ranging from spirals to
-									spiral-shaped corkscrew
+									<i>2c Wavy </i>(<b>Coarse</b>) Hair is
+									fairly thick, frizzy or very frizzy with
+									thicker waves, and often more resistant to
+									styling
 								</label>
 							</div>
-							<p>Type 4: Kinky</p>
+							<h5>Type 3: Curly</h5>
 							<div className="form-check">
 								<label>
 									<input
 										type="radio"
 										name="type"
-										value={"4a"}
+										value={"Curly: Loose"}
 										onChange={e =>
 											setHairType(e.target.value)
 										}
-										checked={hairType === "4a"}
+										checked={hairType === "Curly: Loose"}
 										className="form-check-input"
 									/>
-									4a Kinky (Soft) Hair tends to be very wiry
-									and fragile, tightly coiled and can feature
-									curly patterning.
+									<i>3a Curly</i> (<b>Loose</b>) Presents a
+									definite "S" pattern, tends to combine
+									thickness, volume, and/or frizziness
 								</label>
 							</div>
 							<div className="form-check">
@@ -281,31 +254,64 @@ const List = ({ history }) => {
 									<input
 										type="radio"
 										name="type"
-										value={"4b"}
+										value={"Curly: Tight"}
 										onChange={e =>
 											setHairType(e.target.value)
 										}
-										checked={hairType === "4b"}
+										checked={hairType === "Curly: Tight"}
 										className="form-check-input"
 									/>
-									4b Kinky (Wiry) As 4a but with less defined
-									pattern of curls, looks more like a "Z" with
-									sharp angles
+									<i>3b Curly</i> (<b>Tight</b>) Hair has a
+									defined "S" pattern with curls ranging from
+									loose spirals to spiral-shaped corkscrew
+								</label>
+							</div>
+							<h5>Type 4: Kinky</h5>
+							<div className="form-check">
+								<label>
+									<input
+										type="radio"
+										name="type"
+										value={"Kinky: Soft"}
+										onChange={e =>
+											setHairType(e.target.value)
+										}
+										checked={hairType === "Kinky: Soft"}
+										className="form-check-input"
+									/>
+									<i>4a Kinky</i> (<b>Soft</b>) Hair tends to
+									be very wiry and fragile, tightly coiled and
+									can feature curly patterning
+								</label>
+							</div>
+							<div className="form-check">
+								<label>
+									<input
+										type="radio"
+										name="type"
+										value={"Kinky: Wiry"}
+										onChange={e =>
+											setHairType(e.target.value)
+										}
+										checked={hairType === "Kinky: Wiry"}
+										className="form-check-input"
+									/>
+									<i>4b Kinky</i> (<b>Wiry</b>) Hair has a
+									less defined pattern of curls, looks more
+									like a "Z" with sharp angles
 								</label>
 							</div>
 						</div>
-
 						{/* The Lenght of Your Hair */}
-
-						<h6>Length of hair</h6>
+						<h5>Length of hair</h5>
 						<div className="form-check">
 							<label>
 								<input
 									type="radio"
 									name="hairL"
-									value={"short"}
+									value={"Short"}
 									onChange={e => setLength(e.target.value)}
-									checked={length === "short"}
+									checked={length === "Short"}
 									className="form-check-input"
 								/>
 								Short
@@ -316,9 +322,9 @@ const List = ({ history }) => {
 								<input
 									type="radio"
 									name="hairL"
-									value={"medium"}
+									value={"Medium"}
 									onChange={e => setLength(e.target.value)}
-									checked={length === "medium"}
+									checked={length === "Medium"}
 									className="form-check-input"
 								/>
 								Medium
@@ -329,21 +335,20 @@ const List = ({ history }) => {
 								<input
 									type="radio"
 									name="hairL"
-									value={"long"}
+									value={"Long"}
 									onChange={e => setLength(e.target.value)}
-									checked={length === "long"}
+									checked={length === "Long"}
 									className="form-check-input"
 								/>
 								Long
 							</label>
 						</div>
-
 						{/* hair dye section which leads into a turnary */}
 						<div className="form-group">
-							<p>
+							<h5>
 								Has your hair been colored in the last two
 								years?
-							</p>
+							</h5>
 							<div className="form-check">
 								<label>
 									<input
@@ -373,15 +378,6 @@ const List = ({ history }) => {
 									/>
 									No
 								</label>
-								<div className="form-group">
-									<div className="form-calendar">
-										<h6>When were you born?</h6>
-										<Calendar
-											value={born}
-											onChange={born => setBorn(born)}
-										/>
-									</div>
-								</div>
 							</div>
 						</div>
 						{colored === "colored" ? (
@@ -389,7 +385,7 @@ const List = ({ history }) => {
 								{/* turnary and dye process */}
 								<div className="form-group">
 									<div className="form-check">
-										<p>If so, how was it done?</p>
+										<h5>How was it dyed?</h5>
 										<label>
 											<input
 												type="radio"
@@ -423,7 +419,7 @@ const List = ({ history }) => {
 								{/* color date section */}
 								<div className="form-group">
 									<div className="form-calendar">
-										<p>When was your last color date?</p>
+										<h6>When was your last color date?</h6>
 										<Calendar
 											value={date}
 											onChange={date => setDate(date)}
@@ -434,10 +430,18 @@ const List = ({ history }) => {
 						) : (
 							""
 						)}
-
+						<div className="form-group">
+							<div className="form-calendar">
+								<h5>What is your birthday?</h5>
+								<Calendar
+									value={born}
+									onChange={born => setBorn(born)}
+								/>
+							</div>
+						</div>
 						{/* photo upload section and notes section */}
 						<div className="form-group">
-							<p>What is your ideal hair?</p>
+							<h5>What is your ideal hair?</h5>
 							<label>
 								<ProfilePage
 									handleUploadedSuccess={
@@ -449,20 +453,19 @@ const List = ({ history }) => {
 								<input
 									type="text"
 									name="notes"
-									placeholder="Any more notes?"
+									placeholder="Any other notes?"
 									value={notes}
 									onChange={e => setNotes(e.target.value)}
 									className="form-text-input"
 								/>
 							</label>
 						</div>
-
 						{/* end of questionaire and submit */}
 						<div className="form-group">
 							<button
 								className="btn btn-primary mt-2"
 								type="submit">
-								Save
+								Submit
 							</button>
 						</div>
 					</form>

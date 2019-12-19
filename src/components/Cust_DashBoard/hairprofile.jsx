@@ -4,9 +4,7 @@ import firedatabase from "../auth/base";
 import Moment from "react-moment";
 import "../../Stylesheets/global.css";
 import "../../Stylesheets/hairprofile.css";
-
-import sean from "../../images/sean.JPG";
-import picOfgirlOne from "../../images/sel1.jpg";
+import person from "../../images/person.png";
 
 class HairProfile extends React.Component {
 	state = {
@@ -49,7 +47,7 @@ class HairProfile extends React.Component {
 		return (
 			<section className="dashSections">
 				<div className="profile-box ">
-					<img className="img-fluid" src={sean} alt="shawn" />
+					<img className="img-fluid" src={person} alt="person" />
 					{myprofile.map(myprofiles => (
 						<>
 							<ul className="profile">
@@ -61,21 +59,19 @@ class HairProfile extends React.Component {
 								</li>
 								<li>
 									<span className="profile-text">
-										Gender:
-									</span>
-									{myprofiles.Gender}
-								</li>
-								<li>
-									<span className="profile-text">Type:</span>{" "}
+										Hair Type:
+									</span>{" "}
 									{myprofiles.hairType}
 								</li>
 								<li>
-									<span className="profile-text">Color:</span>
+									<span className="profile-text">
+										Hair Color:
+									</span>
 									{myprofiles.NowColor}
 								</li>
 								<li>
 									<span className="profile-text">
-										Length:
+										Hair Length:
 									</span>
 									{myprofiles.length}
 								</li>
