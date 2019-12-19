@@ -1,6 +1,12 @@
 body {
 	background-color: #f8f8f8;
 }
+.favicon-logo {
+	display: flex;
+}
+.favicon {
+	width: 47px;
+}
 
 /** This will move everthing to inside the navBar ***/
 
