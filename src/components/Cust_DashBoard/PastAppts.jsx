@@ -57,7 +57,6 @@ class PastAnAppts extends React.Component {
 								<th scope="col">Stylist</th>
 							</tr>
 						</thead>
-
 						<tbody
 							class="pastAppt)}s-data"
 							data-toggle="modal"
@@ -75,11 +74,10 @@ class PastAnAppts extends React.Component {
 							))}
 						</tbody>
 					</table>
-
 					<div
 						class="modal fade"
 						id="exampleModalScrollable"
-						tabindex="-1"
+						tabIndex="-1"
 						role="dialog"
 						aria-labelledby="exampleModalScrollableTitle"
 						aria-hidden="true">
