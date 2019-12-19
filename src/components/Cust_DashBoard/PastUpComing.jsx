@@ -49,7 +49,7 @@ class PastUpComing extends React.Component {
     const { usersA } = this.state;
     return (
       <>
-        {/* <HairProfile /> */}
+        <HairProfile />
         <section class="dashSections Appts">
           <h5>Upcoming Appointments</h5>
           <table class="table">

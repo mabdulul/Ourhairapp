@@ -20,6 +20,9 @@ const List = ({ history }) => {
 	const [colored, setColored] = useState("");
 	const [pro, setPro] = useState("");
 	const [date, setDate] = useState("");
+	
+	const [born, setBorn] = useState("");
+	const [NowColor, setNowColor] = useState("");
 	// const [picture, setPicture] = useState(""); We will use it later
 	const [notes, setNotes] = useState("");
 
@@ -38,8 +41,10 @@ const List = ({ history }) => {
 				porosity,
 				dye: colored,
 				pro,
+				bday: born,
 				date,
 				file: null,
+				NowColor,
 				notes
 			});
 			history.push("/");
@@ -76,6 +81,17 @@ const List = ({ history }) => {
 										placeholder="Doe"
 										value={lastname}
 										onChange={e => lastUser(e.target.value)}
+										className="form-text-input"
+									/>
+								</label>
+								<label>
+									Color:
+									<input
+										type="text"
+										name="color"
+										placeholder="What is the color of your hair ?"
+										value={NowColor}
+										onChange={e => setNowColor(e.target.value)}
 										className="form-text-input"
 									/>
 								</label>
@@ -371,6 +387,15 @@ const List = ({ history }) => {
 									/>
 									No
 								</label>
+								<div className="form-group">
+									<div className="form-calendar">
+										<h6>When were you born?</h6>
+										<Calendar
+											value={born}
+											onChange={born => setBorn(born)}
+										/>
+									</div>
+								</div>
 							</div>
 						</div>
 						{colored === "colored" ? (

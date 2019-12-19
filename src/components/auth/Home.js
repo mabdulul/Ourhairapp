@@ -4,19 +4,21 @@ import { Link } from "react-router-dom";
 import firedatabase from "./base";
 //import firebase from "./base";
 
-const Home = () => {
-	const user = firedatabase.auth().currentUser;
-	//console.log("this users home", user.uid);
-	return (
-		<>
-			<Link
-				to="/login"
-				className="nav-link"
-				onClick={() => firedatabase.auth().signOut()}>
-				Sign Out
-			</Link>
-		</>
-	);
+const Home = ({ history }) => {
+  const user = firedatabase.auth().currentUser;
+  //console.log("this users home", user.uid);
+
+  return (
+    <>
+      <Link
+        to="/login"
+        className="nav-link"
+        onClick={() => firedatabase.auth().signOut()}
+      >
+        Sign Out
+      </Link>
+    </>
+  );
 };
 
 export default Home;

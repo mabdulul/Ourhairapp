@@ -107,7 +107,7 @@ const App = () => {
                   </li> */}
                   <li class="icon-pastappointment">
                     <span>
-                      <Link className="nav-link" to="/pastUpcoming">
+                      <Link className="nav-link" to="/">
                         Dashboard
                       </Link>
                     </span>
@@ -146,9 +146,7 @@ const App = () => {
           {!!currentUser && (
             <Route exact path="/pastAppts" component={PastAnAppts} />
           )}
-          {!!currentUser && (
-            <Route exact path="/pastUpcoming" component={PastUpComing} />
-          )}
+          {!!currentUser && <Route exact path="/" component={PastUpComing} />}
           <Route exact path="/login" component={Login} />
           <Route exact path="/quiz" component={List} />
           <Route exact path="/signup" component={SignUp} />
