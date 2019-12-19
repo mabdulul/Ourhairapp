@@ -32,7 +32,7 @@ class MakingApts extends React.Component {
 
     const db = firebase.firestore();
     const userRef = db.collection("appointments").add({
-      type: this.state.type,
+      Type: this.state.type,
       Cust_Notes: this.state.notes,
       Date_of_Appt: this.state.date,
       UserId: this.state.uid
