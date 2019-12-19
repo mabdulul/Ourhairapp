@@ -22,6 +22,7 @@ import past from "./images/past.png";
 import appt from "./images/appt.png";
 import terms from "./images/terms.png";
 import logo from "./images/logo.svg";
+import favicon from "./images/logofavicon.png";
 import navlogo from "./images/topnav2.svg";
 //import signup from "./images/signup.png";
 //import signin from "./images/signin.png";
@@ -32,130 +33,172 @@ import navlogo from "./images/topnav2.svg";
 import PastUpComing from "./components/Cust_DashBoard/PastUpComing";
 
 const App = () => {
-  const { currentUser } = useContext(AuthContext);
-  return (
-    <Router>
-      {/* This is the top nav */}
-      <div className="app">
-        <div>
-          <nav className="navbar navbar-expand-lg navbar-light fixed-top navBar-color">
-            <div className="nav-box">
-              <a className="navbar-brand">
-                <h3>HairCode</h3>
-              </a>
-            </div>
-            <button
-              className="navbar-toggler topnav-menu"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="topnav-menu">
-                <img src={navlogo} alt="menu" height="22" width="22" />
-              </span>
-            </button>
-            <div
-              className="collapse navbar-collapse navbar-right"
-              id="navbarNav"
-            >
-              <ul className="navbar-nav">
-                {!!currentUser ? (
-                  <>
-                    {/* <li className="nav-item active">
+	const { currentUser } = useContext(AuthContext);
+	return (
+		<Router>
+			{/* This is the top nav */}
+			<div className="app">
+				<div>
+					<nav className="navbar navbar-expand-lg navbar-light fixed-top navBar-color">
+						<div className="nav-box">
+							<a className="navbar-brand">
+								<div className="favicon-logo">
+									<img
+										src={favicon}
+										alt="icon-logo"
+										className="favicon"
+									/>
+									<h3>HairCode</h3>
+								</div>
+							</a>
+						</div>
+						<button
+							className="navbar-toggler topnav-menu"
+							type="button"
+							data-toggle="collapse"
+							data-target="#navbarNav"
+							aria-controls="navbarNav"
+							aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span className="topnav-menu">
+								<img
+									src={navlogo}
+									alt="menu"
+									height="22"
+									width="22"
+								/>
+							</span>
+						</button>
+						<div
+							className="collapse navbar-collapse navbar-right"
+							id="navbarNav">
+							<ul className="navbar-nav">
+								{!!currentUser ? (
+									<>
+										{/* <li className="nav-item active">
                       <a className="nav-link" href="/">
                         Home <span class="sr-only">(current)</span>
                       </a>
                     </li> */}
-                    <li className="nav-item nav-up">
-                      <Link className="nav-link" component={Home}>
-                        Sign Out
-                      </Link>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/signup">
-                        Sign Up
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/login">
-                        Members Login
-                      </Link>
-                    </li>
-                  </>
-                )}
-              </ul>
-            </div>
-          </nav>
-          {/* This is the side nav */}
-          {!!currentUser ? (
-            <nav className="menu menu-hiddme" tabindex="0">
-              <ul>
-                <>
-                  {/* <li class="icon-me">
+										<li className="nav-item nav-up">
+											<Link
+												className="nav-link"
+												component={Home}>
+												Sign Out
+											</Link>
+										</li>
+									</>
+								) : (
+									<>
+										<li className="nav-item">
+											<Link
+												className="nav-link"
+												to="/signup">
+												Sign Up
+											</Link>
+										</li>
+										<li className="nav-item">
+											<Link
+												className="nav-link"
+												to="/login">
+												Member Login
+											</Link>
+										</li>
+									</>
+								)}
+							</ul>
+						</div>
+					</nav>
+					{/* This is the side nav */}
+					{!!currentUser ? (
+						<nav className="menu menu-hiddme" tabindex="0">
+							<ul>
+								<>
+									{/* <li class="icon-me">
                     <span>
                       <Link className="nav-link" to="/quiz">
                         Quiz
                       </Link>
                     </span>
                   </li> */}
-                  <li class="icon-pastappointment">
-                    <span>
-                      <Link className="nav-link" to="/">
-                        Dashboard
-                      </Link>
-                    </span>
-                  </li>
-                  <li class="icon-appointment">
-                    <span>
-                      <Link class="nav-link" to="/MakingApts">
-                        Make an Appointment
-                      </Link>
-                    </span>
-                  </li>
-                  <li className="nav-icon" class="icon-terms">
-                    <div class="dropdown">
-                      <span>
-                        <Link class="dropbtn nav-link">Terminology</Link>
-                      </span>
-                      <div class="dropdown-content">
-                        <a href="/cut">Cut</a>
-                        <a href="/dye">Dye</a>
-                        <a href="/style">Style</a>
-                      </div>
-                    </div>
-                  </li>
-                </>
-              </ul>
-            </nav>
-          ) : (
-            <></>
-          )}
-        </div>
-        <div className="container" className="content-container">
-          {!!currentUser && <Route exact path="/profile" component={Client} />}
-          {!!currentUser && (
-            <Route exact path="/MakingApts" component={MakingApts} />
-          )}
-          {!!currentUser && (
-            <Route exact path="/pastAppts" component={PastAnAppts} />
-          )}
-          {!!currentUser && <Route exact path="/" component={PastUpComing} />}
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/quiz" component={List} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/stylist" component={Stylist_Quiz_List} />
-          {!!currentUser && <Route exact path="/cut" component={Cut} />}
-          {!!currentUser && <Route exact path="/dye" component={Dye} />}
-          {!!currentUser && <Route exact path="/style" component={Style} />}
-        </div>
-      </div>
-    </Router>
-  );
+									<li class="icon-pastappointment">
+										<span>
+											<Link className="nav-link" to="/">
+												Dashboard
+											</Link>
+										</span>
+									</li>
+									<li class="icon-appointment">
+										<span>
+											<Link
+												class="nav-link"
+												to="/make-appointment">
+												Make an Appointment
+											</Link>
+										</span>
+									</li>
+									<li className="nav-icon" class="icon-terms">
+										<div class="dropdown">
+											<span>
+												<Link class="dropbtn nav-link">
+													Terminology
+												</Link>
+											</span>
+											<div class="dropdown-content">
+												<a href="/cut">Cut</a>
+												<a href="/dye">Dye</a>
+												<a href="/style">Style</a>
+											</div>
+										</div>
+									</li>
+								</>
+							</ul>
+						</nav>
+					) : (
+						<></>
+					)}
+				</div>
+				<div className="container" className="content-container">
+					{!!currentUser && (
+						<Route exact path="/profile" component={Client} />
+					)}
+					{!!currentUser && (
+						<Route
+							exact
+							path="/make-appointment"
+							component={MakingApts}
+						/>
+					)}
+					{!!currentUser && (
+						<Route
+							exact
+							path="/pastAppts"
+							component={PastAnAppts}
+						/>
+					)}
+					{!!currentUser && (
+						<Route exact path="/" component={PastUpComing} />
+					)}
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/quiz" component={List} />
+					<Route exact path="/signup" component={SignUp} />
+					<Route
+						exact
+						path="/stylist"
+						component={Stylist_Quiz_List}
+					/>
+					{!!currentUser && (
+						<Route exact path="/cut" component={Cut} />
+					)}
+					{!!currentUser && (
+						<Route exact path="/dye" component={Dye} />
+					)}
+					{!!currentUser && (
+						<Route exact path="/style" component={Style} />
+					)}
+				</div>
+			</div>
+		</Router>
+	);
 };
 export default App;
