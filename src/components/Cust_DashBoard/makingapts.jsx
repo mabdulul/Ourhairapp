@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as firebase from "firebase/app";
 import firedatabase from "../auth/base";
 import Calendar from "react-calendar/dist/entry.nostyle";
@@ -28,7 +29,6 @@ class MakingApts extends React.Component {
 	};
 	addUser = e => {
 		e.preventDefault();
-
 		const db = firebase.firestore();
 		const userRef = db.collection("appointments").add({
 			type: this.state.type,
@@ -44,54 +44,43 @@ class MakingApts extends React.Component {
 		});
 	};
 	render() {
-		console.log(this.state);
 		return (
 			<section className="dashSections">
 				<div className="Calendar">
 					<label>
-						<strong>What you like to be done:</strong>
-						<br />
+						<h6>What would you like done:</h6>
 						<select
 							value={this.state.type}
 							name="type"
-							onChange={this.updateInput}
-						>
+							onChange={this.updateInput}>
 							<option value="cut">Cut</option>
+							<option value="trim">Trim</option>
 							<option value="color">Color</option>
-							<option value="trim">trim</option>
+							<option value="event styling">Event Styling</option>
+							<option value="perm">Perm</option>
 							<option value="blowOut">BlowOut</option>
+							<option value="other">Other</option>
 						</select>
 					</label>
 					<br />
-
+					<br />
 					<input
 						class="makingapt-input"
 						name="notes"
-						placeholder="notes"
+						placeholder="Additional Notes"
 						onChange={this.updateInput}
 					/>
-
 					<form onSubmit={this.addUser}>
-						{/* <input
-          type="text"
-          name="appointments"
-          placeholder="MM-DD-YYYY"
-          onChange={this.updateInput}
-        /> */}
+						<h6>When:</h6>
 						<Calendar
 							class="calendar"
 							name="appointments"
 							onChange={this.onChange}
 							value={this.state.date}
 						/>
-
-						<button
-							type="button"
-							class="btn btn-primary"
-							type="submit"
-						>
+						<Link to="/" class="btn btn-primary">
 							Submit
-						</button>
+						</Link>
 					</form>
 				</div>
 			</section>
