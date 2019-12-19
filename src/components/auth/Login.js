@@ -25,7 +25,7 @@ const Login = ({ history }) => {
 	const { currentUser } = useContext(AuthContext);
 
 	if (currentUser) {
-		return <Redirect to="/dashboard" />;
+		return <Redirect to="/login" />;
 	}
 
 	return (
@@ -38,7 +38,7 @@ const Login = ({ history }) => {
 							onSubmit={handleLogin}>
 							<label htmlFor="Email">
 								<p className="login-header">
-									Login to see your past, present and future
+									Log in to see your past, present, and future
 									self.
 								</p>
 								<input
