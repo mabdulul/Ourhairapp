@@ -58,12 +58,6 @@ class HairProfile extends React.Component {
                   {myprofiles.firstname} {myprofiles.lastname}
                 </li>
                 <li>
-                  <span className="profile-text">Birthday:</span>
-                  <Moment unix format="MMMM DD, YYYY">
-                    {myprofiles.bday.seconds}
-                  </Moment>
-                </li>
-                <li>
                   <span className="profile-text">Gender:</span>
                   {myprofiles.Gender}
                 </li>
