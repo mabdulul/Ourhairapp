@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import * as firebase from "firebase/app";
 import firedatabase from "../auth/base";
 import Calendar from "react-calendar/dist/entry.nostyle";
@@ -27,15 +27,16 @@ class MakingApts extends React.Component {
 			uid: user.uid
 		});
 	};
-	addUser = e => {
+	addUser = async e => {
 		e.preventDefault();
 		const db = firebase.firestore();
-		const userRef = db.collection("appointments").add({
+		const userRef = await db.collection("appointments").add({
 			type: this.state.type,
 			Cust_Notes: this.state.notes,
 			Date_of_Appt: this.state.date,
 			UserId: this.state.uid
 		});
+		this.props.history.push("/");
 	};
 	onChange = date => this.setState({ date });
 	updateInput = e => {
@@ -78,9 +79,9 @@ class MakingApts extends React.Component {
 							onChange={this.onChange}
 							value={this.state.date}
 						/>
-						<Link to="/" class="btn btn-primary">
+						<button type="submit" class="btn btn-primary">
 							Submit
-						</Link>
+						</button>
 					</form>
 				</div>
 			</section>
@@ -88,4 +89,4 @@ class MakingApts extends React.Component {
 	}
 }
 
-export default MakingApts;
+export default withRouter(MakingApts);
